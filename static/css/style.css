@@ -26,10 +26,25 @@ body{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	transform: translateX(100%);
 	transition: transform 0.7s cubic-bezier(0.91, 0.01, 0.6, 0.99);
+	padding:0 20vw;
+}
 
+.loader h3{
+	color: #e6e6e6;
+	font-weight: normal;
+	font-size: 1em;
+	font-family: serif;
 
+}
+.loader p{
+	color: #e6e6e6;
+	text-align:right;
+	display: block;
+	width: 100%;
+	margin-left:auto;
 }
 
 .loading .loader{
@@ -546,7 +561,7 @@ a.navigation:hover{
 	width: 100%;
 	height:100%;
 	min-height: 100vh;
-	background-color: #1e2127;
+	/*background-color: #1e2127;*/
 	z-index: 1;
 	color:#ababab;
 	transform: translateX(-50%);
@@ -556,10 +571,59 @@ a.navigation:hover{
 }
 
 #music-list .music-wrapper{
+	opacity:0.8;
 	transform: translateX(-50%);
 	backface-visibility: hidden;
 	transition: transform 0.7s;
 	transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78);
+	background-color: red;
+	min-height: 100vh;
+
+}
+
+
+.music-open .music-wrapper{
+	background-image: url(../img/monde.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	animation-name: scaleBack;
+	animation-delay: 1s;
+	animation-duration: 3s;
+	animation-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78);
+}
+
+@keyframes scaleBack{
+	0%{
+		transform: scale(1.3);
+	}
+
+	100%{
+		transform: scale(1)
+	}
+}
+
+#music-list .clippedBg{
+	position: fixed;
+	display: flex;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	min-height: 90vh;
+	background-color: blue;
+	clip-path: polygon(100% 0%, 100% 0%, 75% 100%, 0% 100%); /*triangle*/
+	background-image: url(../img/monde.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#music-list .content{
+	position: absolute;
+	top: 0;
+	text-align: center;
+	width: 100%;
 }
 
 .music-open #music-list .music-wrapper{
