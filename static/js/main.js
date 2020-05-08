@@ -29,6 +29,11 @@ var projects = $("#projects");
 var menu = $('.navigation');
 var projects = document.getElementById("projects");
 var main_content = $('.mainHeader');
+var sound = new Howl({
+	src:['../static/audio/1.mp3']
+})
+var artist = $('.artist a');
+var pauseMusic = $('.music-close');
 
 
 
@@ -36,7 +41,8 @@ var main_content = $('.mainHeader');
 // anchor link click on sidebar
 $('._jsSideNav').on('click', function(){
 	body.toggleClass('sideNavOpen');
-	changeText();
+	// changeText();
+	$('#nav-icon1').toggleClass('open');
 
 })
 
@@ -52,7 +58,6 @@ if (e.clientX < 200){
 function openMenu(){
 	body.addClass("sideNavOpen");
 	body.removeClass("wee");
-	menu.text("X CLOSE MENU");	
 }
 
 function openMusic(){
@@ -74,3 +79,18 @@ function changeText(){
 	}
 }
 
+
+function playAudio (){
+	console.log("Fire sound");
+	sound.play();
+}
+
+function stopAudio(){
+	console.log("pause sound")
+	sound.pause();
+}
+
+
+
+artist.on('click', playAudio());
+pauseMusic.on('click',stopAudio());
