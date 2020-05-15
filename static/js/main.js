@@ -32,6 +32,7 @@ var main_content = $('.mainHeader');
 var sound = new Howl({
 	src:['../static/audio/1.mp3']
 })
+var clickSound = new Howl({})
 var artist = $('.artist a');
 var pauseMusic = $('.music-close');
 
@@ -58,6 +59,7 @@ if (e.clientX < 200){
 function openMenu(){
 	body.addClass("sideNavOpen");
 	body.removeClass("wee");
+	sound.play();
 }
 
 function openMusic(){
