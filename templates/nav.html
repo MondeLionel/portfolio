@@ -1,0 +1,99 @@
+{% block nav %}
+		<div class="sideNav">
+			<ul class="list-unstyled nav tab-nav">
+				<li class="nav-item">
+					<a href="#home"  id="home-tab" data-toggle="tab" class="active" onclick="openMenu()"><img src="../static/img/github-badge.png" alt=""></a>
+				</li>
+				<li class="nav-item">
+					<a href="#profile" id="profile-tab" data-toggle="tab" onclick="openMenu()"><img src="../static/img/codepen.png" alt=""></a>
+				</li>
+				<li class="nav-item">
+					<a href="#contact" id="contact-tab" data-toggle="tab" onclick="openMenu()"><img src="../static/img/social_wordpress.png" alt=""></a>
+				</li>
+			</ul>
+
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+					<div class="panelContent">
+						<h1>GITHUB</h1>
+						<div class="row">
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+					<div class="panelContent">
+						<h1>CODEPEN</h1>
+						<div class="row">
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+					<div class="panelContent">
+						<h1>BLOGS</h1>
+						<div class="row">
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-6">
+								<div class="cardImg">
+									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
+									<p>CLICKABLE BUTTON</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mobileMenu row">
+				<div class="col-6 menuItem">Projects</div>
+				<div class="col-6 menuItem">Details</div>
+
+			</div>
+		</div>
+{% endblock %}

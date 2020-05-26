@@ -10,10 +10,11 @@ setTimeout(
 
 
 	// mousemove background beeyatch
-var movementStrength = 25;
+var movementStrength = 5;
 var height = movementStrength / $(window).height();
 var width = movementStrength / $(window).width();
-$(".mainHeader").mousemove(function(e){
+// change to relevant div
+$(".main").mousemove(function(e){
           var pageX = e.pageX - ($(window).width() / 2);
           var pageY = e.pageY - ($(window).height() / 2);
           var newvalueX = width * pageX * -1 - 25;
@@ -29,15 +30,26 @@ var projects = $("#projects");
 var menu = $('.navigation');
 var projects = document.getElementById("projects");
 var main_content = $('.mainHeader');
-var sound = new Howl({
-	src:['../static/audio/1.mp3']
-})
-var clickSound = new Howl({})
+
 var artist = $('.artist a');
 var pauseMusic = $('.music-close');
+const artistItem = $('.artist');
 
 
 
+
+// add active class to clicked element
+
+artistItem.on('click', classBasedNav)
+
+
+// function to add active class
+function classBasedNav (){
+	// e.preventDefault();
+
+	 $(this).siblings().removeClass("active");
+	 $(this).addClass("active");
+}
 
 // anchor link click on sidebar
 $('._jsSideNav').on('click', function(){
@@ -46,6 +58,8 @@ $('._jsSideNav').on('click', function(){
 	$('#nav-icon1').toggleClass('open');
 
 })
+
+$('.hidePlayer').on('click', removeActive())
 
 // proximity menu open
 projects.addEventListener("mousemove", function(e){
@@ -59,7 +73,7 @@ if (e.clientX < 200){
 function openMenu(){
 	body.addClass("sideNavOpen");
 	body.removeClass("wee");
-	sound.play();
+	// sound.play();
 }
 
 function openMusic(){
@@ -81,18 +95,20 @@ function changeText(){
 	}
 }
 
-
 function playAudio (){
 	console.log("Fire sound");
-	sound.play();
+
 }
 
 function stopAudio(){
 	console.log("pause sound")
-	sound.pause();
+
 }
 
+function removeActive(){
+	 artistItem.removeClass("active");
+	console.log("remove active class")
+}
 
-
-artist.on('click', playAudio());
+// artist.on('click', playAudio());
 pauseMusic.on('click',stopAudio());

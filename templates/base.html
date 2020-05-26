@@ -3,13 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<title>MLN</title>
-	<!-- <link href="https://fonts.googleapis.com/css?family=Barlow:500i,900&display=swap" rel="stylesheet"> -->
-	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
-	url_for('static', filename='style.css')
-	<style>
-
-	</style>
+	<title>Monde Nyawose</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	 <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet">
+	<style></style>
 </head>
+<body class="{{ bodyClass }}">
+	<div class="loader">
+		<h3>"Perhaps yesterday you decided wrongly about me. Perhaps today you misjudge me as well. However, I remain myself. I have never cared about others misjudging me."</h3>
+		<p><i>Cao Mengde - Prince of Wei</i></p>
+	</div>
+
+{% block nav %}{% endblock %}
+
+{% block content %}{% endblock %}
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
+<!--<script src="{{ url_for('static', filename='js/howler.min.js') }}"></script>-->
+<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+</body>
+</html>
