@@ -21,7 +21,16 @@ $(".main").mousemove(function(e){
           var newvalueY = height * pageY * -1 - 20;
           $('.mainHeader').css("background-position", newvalueX+"px     "+newvalueY+"px");
 	});
-})
+
+
+// initialize SoundCloud SDK
+  SC.initialize({
+    client_id: 'YOUR_CLIENT_ID',
+    redirect_uri: 'https://example.com/callback'
+  });
+
+
+})//end dom ready
 
 
 
@@ -112,3 +121,10 @@ function removeActive(){
 
 // artist.on('click', playAudio());
 pauseMusic.on('click',stopAudio());
+
+
+// Dummy ajax call
+
+  $.get("", function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });

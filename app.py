@@ -3,7 +3,9 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
+# last fm api key: de17baf844b46b8ba785e996cfd5fc0b
+# shared secret: 80565616a45acd3218ccb3a413b75fd7
+# Monde_vagrant
 @app.route('/')
 def index():
 
