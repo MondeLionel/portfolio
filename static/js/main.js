@@ -122,6 +122,6 @@ pauseMusic.on('click',stopAudio());
 
 // Dummy ajax call
 
-  $.get("", function(data, status){
-    alert("Data: " + data + "\nStatus: " + status);
-  });
+  // $.get("", function(data, status){
+  //   alert("Data: " + data + "\nStatus: " + status);
+  // });
