@@ -32,6 +32,7 @@ var openApps = $('._jsOpenMusic');
 var playmusic = $('.play-music');
 var stopMusic = $('.pause-music');
 var appMenuItem = $('.menu-item');
+var closeMenu = $('#nav-icon1');
 var sound = new Howl({
   src: ['../static/audio/I_cant_breate.mp3'],
   autoplay: false,
@@ -148,8 +149,13 @@ function openMenu(){
 
 function openMusic(){
 	return function(){
-		body.addClass("music-open");
 		body.removeClass("sideNavOpen");
+		closeMenu.removeClass("open");
+		setTimeout(function(){
+			body.addClass("music-open");
+		},1000)
+		
+		
 	}
 	
 }
