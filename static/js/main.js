@@ -1,3 +1,4 @@
+// call global objects into our function scope
 
 (function(w,d,$){
 
