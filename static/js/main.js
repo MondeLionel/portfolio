@@ -1,5 +1,5 @@
 
-(function(){
+(function(w,d,$){
 
 	$(document).ready(function () {
 // first page load
@@ -229,7 +229,7 @@ function closeAppMenu(){
 
 }
 
-})()
+})(window,document,jQuery)
 
 
 
