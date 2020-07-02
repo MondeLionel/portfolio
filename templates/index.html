@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!-- <div class="permWrapper">
+	<div class="permission">
+		<div class="permText">
+			<p>This Website uses audio.</p>
+			<p class="small">Allow audio?</p>
+		</div>
+		<div class="permBtn">
+			<a href="#" onclick="allowSounds()" data-reply="1">Yes</a>
+			<a href="#" onclick="noSounds()" data-reply="0">No</a>
+		</div>
+	</div>
+</div> -->
 
 	<a class="navigation _jsSideNav" href="javascript:void(0)">
 		<div id="nav-icon1">
@@ -10,101 +21,163 @@
 			<span></span>
 		</div>
 	</a>
-	<a class="music-nav" href="javascript:void(0)" onclick="openMusic()">My Music List</a>
+	<div class="music-wrapper">	
+		<div class="music-nav paused">
+			<span><img src="{{ url_for('static', filename='img/icon_pause.svg') }}" alt="" class="pause-music"></span>
+			<span><img src="{{ url_for('static', filename='img/arrow_triangle-right.svg') }}" alt="" class="play-music"></span>
+		</div>
+	</div>
 	
 
 	<div id="music-list">
-		<a href="#" class="music-close" onclick="closeMusic()">X</a>
+		<a href="javascript:void(0)" class="music-close">
+			<?xml version="1.0" encoding="utf-8"?> <!-- Generator: IcoMoon.io --> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g><path d="M 10.050,23.95c 0.39,0.39, 1.024,0.39, 1.414,0L 17,18.414l 5.536,5.536c 0.39,0.39, 1.024,0.39, 1.414,0 c 0.39-0.39, 0.39-1.024,0-1.414L 18.414,17l 5.536-5.536c 0.39-0.39, 0.39-1.024,0-1.414c-0.39-0.39-1.024-0.39-1.414,0 L 17,15.586L 11.464,10.050c-0.39-0.39-1.024-0.39-1.414,0c-0.39,0.39-0.39,1.024,0,1.414L 15.586,17l-5.536,5.536 C 9.66,22.926, 9.66,23.56, 10.050,23.95z"></path></g></svg>
+		</a>
 		<!-- <div class="music-wrapper"></div> -->
 		<div class="clippedBg"></div>
-		<div class="content">
-			<h3>My Music Selection</h3>
-			<ul class="artists">
-				<li class="artist">
-					<a href="#">
-						<p>KENDRICK LAMAR </p>
-						<div class="AlbumInfo">
-							<p><i>These Walls</i></p>
-							<p>To Pimp a butterfly</p>
-							<p>2015</p>
-						</div>
-						
-					</a>
-					<button class="hidePlayer btn btn-primary" onclick="removeActive()">Back</button>
+		<div class="content row">
+			<div class="app_1 col-md-4 apps">
+				<div class="mobile">
+					<!-- <h1>
+						<span>W</span>
+						<span>E</span>
+					</h1> -->
+<!-- THINGS TO RESEARCH -->
 
-						<img src="../static/img/monde.jpg" alt="">
-						
-				</li>
-				<li class="artist">
-					<a href="#">
-						<p>KENDRICK LAMAR </p>
-					</a>
-						<img src="../static/img/monde.jpg" alt="">
-				</li>
-				<li class="artist">
-					<a href="#">
-						<p>KENDRICK LAMAR </p>
-					</a>
-						<img src="../static/img/monde.jpg" alt="">
-				</li>
-				<li class="artist">
-					<a href="#">
-						<p>KENDRICK LAMAR </p>
-					</a>
-						<img src="../static/img/monde.jpg" alt="">
-				</li>
-			</ul>
+<!-- 
+* backface content
+* good rotation
+* add things on load with AOS
+
+ -->
+					<div class="background-menu">
+						<div class="menu-wrapper">
+							<div class="user-details">
+								<img src="../static/img/hlaudi.jpg" alt="" class="img-fluid circle-img">
+								<p>Hlaudi Motswaneng
+									<br>
+									<span class="small">Joined since 2020</span>
+								</p>
+							</div>
+							<ul>
+								<li><a href="#" class="menu-item">FOR KIDS</a></li>
+								<li><a href="#" class="menu-item">FOR WOMEN</a></li>
+								<li><a href="#" class="menu-item">FOR MEN</a></li>
+								<li><a href="#" class="menu-item">FOR ELDERLY</a></li>
+								<li><a href="#" class="menu-item">SHIPPING</a></li>
+								<li><a href="#" class="menu-item">HISTORY</a></li>
+							</ul>
+						</div>		
+
+						<div class="app-content">
+							<div class="content-app-1">
+								<div class="shopHeader">
+									<?xml version="1.0" encoding="utf-8"?> <!-- Generator: IcoMoon.io --> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g><path d="M 12.3,17.71l 6.486,6.486c 0.39,0.39, 1.024,0.39, 1.414,0c 0.39-0.39, 0.39-1.024,0-1.414L 14.418,17 L 20.2,11.218c 0.39-0.39, 0.39-1.024,0-1.414c-0.39-0.39-1.024-0.39-1.414,0L 12.3,16.29C 12.104,16.486, 12.008,16.742, 12.008,17 C 12.008,17.258, 12.104,17.514, 12.3,17.71z"></path></g></svg>
+									<a href="#" class="menu-1">Shopping</a>
+								</div>
+								<div class="shopMen row">
+									<div class="col-6">
+										<a class="item" href="javascript:void(0)">
+											<img src="../static/img/products/1.jpg" alt="" class="img-fluid">
+											<p>Mas Sofrito</p>
+											<p>R 2000</p>
+										</a>
+									</div>
+										<div class="col-6">
+										<a class="item" href="javascript:void(0)">
+											<img src="../static/img/products/2.jpg" alt="" class="img-fluid">
+											<p>Mas Sofrito</p>
+											<p>R 2000</p>
+										</a>
+									</div>
+											<div class="col-6">
+										<a class="item" href="javascript:void(0)">
+											<img src="../static/img/products/3.jpg" alt="" class="img-fluid">
+											<p>Mas Sofrito</p>
+											<p>R 2000</p>
+										</a>
+									</div>
+										<div class="col-6">
+										<a class="item" href="javascript:void(0)">
+											<img src="../static/img/products/4.jpg" alt="" class="img-fluid">
+											<p>Mas Sofrito</p>
+											<p>R 2000</p>
+										</a>
+									</div>		<div class="col-6">
+										<a class="item" href="javascript:void(0)">
+											<img src="../static/img/products/5.jpg" alt="" class="img-fluid">
+											<p>Mas Sofrito</p>
+											<p>R 2000</p>
+										</a>
+									</div>
+										<div class="col-6">
+										<a class="item" href="javascript:void(0)">
+											<img src="../static/img/products/6.jpg" alt="" class="img-fluid">
+											<p>Mas Sofrito</p>
+											<p>R 2000</p>
+										</a>
+									</div>
+								</div>
+								<div class="app-nav">
+									<a href="#" class="app-nav-item">
+										<img src="../static/img/icons/icon_cog.png" alt="" class="img-fluid">
+									</a>
+									<a href="#" class="app-nav-item">
+										<img src="../static/img/icons/icon_bag_alt.png" alt="" class="img-fluid">
+									</a>
+									<a href="#" class="app-nav-item">
+										<img src="../static/img/icons/icon_compass_alt.png" alt="" class="img-fluid">
+									</a>
+									<a href="#" class="app-nav-item">
+										<img src="../static/img/icons/icon_heart.png" alt="" class="img-fluid">
+									</a>
+									
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="app_2 col-md-4 apps">
+				<div class="mobile">
+					<h1>
+						<span>C</span>
+						<span>A</span>
+						<span>N</span>
+						<span>'</span>
+						<span>T</span>
+					</h1>
+				</div>
+			</div>
+			<div class="app_3 col-md-4 apps">
+				<div class="mobile">
+					<h1>
+						<span>B</span>
+						<span>R</span>
+						<span>E</span>
+						<span>A</span>
+						<span>T</span>
+						<span>H</span>
+						<span>E</span>
+					</h1>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<div class="row container mainHeader hide-body">
-		<div id="projects" class="linkDivs first">
-			<a href="javascript:void(0)" data-toggle="modal" data-target="#talentModal">Projects</a>
-		</div>
-		<div class="linkDivs second">
-			<a href="javascript:void(0)" data-toggle="modal" data-target="#worksModal">Bookings</a>
-		</div>
-	</div>
-
-<div class="modal slide-in-right" id="storyModal" tabindex="-1" role="dialog" aria-labelledby="storyModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<a href="#" class="close" data-dismiss="modal">X</a>
-				<div>
-					<h1>Modal one</h1>
-				</div>
+		<div class="proximity"></div>
+		<div class="mianContent">
+			<h3>"And underneath it all, was madness!" - unknown Author</h3>
+			<div class="mydetails">
+					<h1>MONDE NYAWOSE</h1>
+			<p>UI/UX, Front-end Developer, Project Management</p>
+			<a class="_jsOpenMusic" href="javascript:void(0)">OPEN APP UI SAMPLES</a>
 			</div>
+		
 		</div>
-	</div>
-</div>
 
-<!-- talent Modal -->
-<div class="modal slide-in-left" id="talentModal" tabindex="-1" role="dialog" aria-labelledby="storyModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<a href="#" class="close" data-dismiss="modal">X</a>
-				<div>
-					<h1>Modal two</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- works Modal -->
-	<div class="modal slide-in-right" id="worksModal" tabindex="-1" role="dialog" aria-labelledby="storyModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<a href="#" class="close" data-dismiss="modal">X</a>
-				<div>
-					<h1>Modal three</h1>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 <!-- scripts -->
 

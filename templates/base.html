@@ -6,124 +6,31 @@
 	<title>Monde Nyawose</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
 	 <!-- <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"> -->
 	<style></style>
 </head>
-<body class="home">
+<body class="{{ bodyClass }} loading">
+
 	<div class="loader">
-		<h3>"Perhaps yesterday you decided wrongly about me. Perhaps today you misjudge me as well. However, I remain myself. I have never cared about others misjudging me."</h3>
-		<p><i>Cao Mengde - Prince of Wei</i></p>
+	<!-- <h3>"Perhaps yesterday you decided wrongly about me. Perhaps today you misjudge me as well. However, I remain myself. I have never cared about others misjudging me."</h3>
+		<p><i>Cao Mengde - Prince of Wei</i></p> -->
 	</div>
 
-		<div class="sideNav">
-			<ul class="list-unstyled nav tab-nav">
-				<li class="nav-item">
-					<a href="#home"  id="home-tab" data-toggle="tab" class="active" onclick="openMenu()"><img src="../static/img/github-badge.png" alt=""></a>
-				</li>
-				<li class="nav-item">
-					<a href="#profile" id="profile-tab" data-toggle="tab" onclick="openMenu()"><img src="../static/img/codepen.png" alt=""></a>
-				</li>
-				<li class="nav-item">
-					<a href="#contact" id="contact-tab" data-toggle="tab" onclick="openMenu()"><img src="../static/img/social_wordpress.png" alt=""></a>
-				</li>
-			</ul>
 
-			<div class="tab-content" id="myTabContent">
-				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<div class="panelContent">
-						<h1>GITHUB</h1>
-						<div class="row">
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
-									<p>CLICKABLE BUTTON</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
-									<p>CLICKABLE BUTTON</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
-									<p>CLICKABLE BUTTON</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-					<div class="panelContent">
-						<h1>CODEPEN</h1>
-						<div class="row">
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/codepen/cards_codepen.jpg" alt="card-image" class="img-fluid">
-									<p>card based UI</p>
-									<a href="https://codepen.io/MondeLionel/pen/MWaRxvR">codepen link</a>
-								</div>
-							</div>
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/codepen/radial_codepen.jpg" alt="card-image" class="img-fluid">
-									<p>experimenting with Sound</p>
-									<a href="https://codepen.io/MondeLionel/pen/MWaRxvR">codepen link</a>
-								</div>
-							</div>
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/codepen/fire_blob.jpg" alt="card-image" class="img-fluid">
-									<p>Material design-ish softness</p>
-									<a href="https://codepen.io/MondeLionel/pen/MWaRxvR">codepen link</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-					<div class="panelContent">
-						<h1>BLOGS</h1>
-						<div class="row">
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
-									<p>CLICKABLE BUTTON</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
-									<p>CLICKABLE BUTTON</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-6">
-								<div class="cardImg">
-									<img src="../static/img/monde1.jpg" alt="card-image" class="img-fluid">
-									<p>CLICKABLE BUTTON</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="mobileMenu row">
-				<div class="col-6 menuItem">Projects</div>
-				<div class="col-6 menuItem">Details</div>
-
-			</div>
-		</div>
-
+<div class="cool-nav">
+	<a href="#">GITHUB</a>
+	<a href="#">CODEPEN</a>
+	<a href="/dashboard">SAMPLE DASHBOARD</a>
+</div>
 
 {% block content %}{% endblock %}
 
-<script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
-<!--<script src="{{ url_for('static', filename='js/howler.min.js') }}"></script>-->
-<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
-
-</body>
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
+		<!-- <script src="{{ url_for('static', filename='js/particles.min.js') }}"></script> -->
+		<!-- <script src="{{ url_for('static', filename='js/anime.min.js') }}"></script> -->
+		<script src="{{ url_for('static', filename='js/howler.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+	</body>
 </html>

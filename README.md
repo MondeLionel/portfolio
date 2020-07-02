@@ -22,12 +22,12 @@ My personal website and portfolio. Python Flask for backend and Jquery/Bootstrap
 
 
 # Todo
-1. Form validation
-2. Improve mobile
-3. Copy?
-4. Optimize for SPEED
-5. Optmize animations
-6. create blog section (USE WP or Tumblr/INSTAGRAM API)
-7. Deploy to Heroku/Digital Ocean
-8. Wax lyrical
-9. Use Github/codepen/Medium API's respectively
+1. [x] Form validation
+2. [x] Improve mobile
+3. [x] Copy?
+4. [] Optimize for SPEED
+5. [x] Optmize animations
+6. [] create blog section (USE WP or Tumblr/INSTAGRAM API)
+7. [x] Deploy to Heroku/Digital Ocean
+8. [] Wax lyrical
+9. [] Use Github/codepen/Medium API's respectively

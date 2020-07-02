@@ -1,32 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "base.html" %}
 
-	<title>Monde Nyawose</title>
-	<!-- <link href="https://fonts.googleapis.com/css?family=Barlow:500i,900&display=swap" rel="stylesheet"> -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-	<style>
+{% block content %}
 
-	</style>
-</head>
-<body class="{{ bodyClass }}">
 
-	<!-- nav -->
-	
-	<div class="mainNav nav"> 
-		<div class="container customContainer row topBar">
-			<a href="#">DASHBOARD</a>
-			<input type="search" class="form-control">
-			<a href="#">BACKFIELD</a>
-		</div>
+<!-- nav -->
+
+<div class="mainNav nav"> 
+	<div class="container customContainer row topBar">
+		<a class="navigation _jsSideNav" href="javascript:void(0)">
+			<div id="nav-icon1">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</a>
+		<img src="" alt="">
+		<input type="search" class="form-control" placeholder="search...">
+		<a href="/" class="back-home">
+			<?xml version="1.0" encoding="utf-8"?> <!-- Generator: IcoMoon.io --> <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g><path d="M 4,15.004C 4,15.132, 4.028,15.26, 4.078,15.382c 0.048,0.118, 0.12,0.224, 0.208,0.314 C 4.288,15.7, 4.29,15.704, 4.292,15.708l 6,6c 0.39,0.39, 1.024,0.39, 1.414,0c 0.39-0.39, 0.39-1.024,0-1.414L 7.414,16L 27,16 C 27.552,16, 28,15.552, 28,15C 28,14.448, 27.552,14, 27,14L 7.414,14 l 4.292-4.292c 0.39-0.39, 0.39-1.024,0-1.414 c-0.39-0.39-1.024-0.39-1.414,0l-6,6C 4.29,14.296, 4.288,14.302, 4.286,14.304C 4.198,14.394, 4.126,14.5, 4.078,14.618 C 4.026,14.74, 4,14.87, 4,15l0,0C 4,15.002, 4,15.002, 4,15.004z"></path></g></svg>
+		</a>
 	</div>
+</div>
 
-	<!-- mainsection -->
-	<main class="container customContainer">
-		<div class="row">
+<!-- mainsection -->
+<main class="container customContainer">
+	<div class="row m-0">
 		<div class="menu col-md-2 nav">
 			<ul>
 				<li>
@@ -46,7 +44,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="mainContent col-8">
+		<div class="mainContent col-md-7">
 			<header class="row align-items-center justify-content-between">
 				<div class="headerItems">
 					<h3 class="heading">Art and science</h3>
@@ -54,8 +52,11 @@
 				</div>
 				<a href="#" class="btn btn-primary btn-rounded">Add new book</a>
 			</header>
-			<div class="dashData row m-0">
-				<div class="col-6">
+			<div class="dashData desktop row m-0">
+				<div class="col-md-12 header">
+					<h3>Your favourite Authors in this catergory</h3>
+				</div>
+				<div class="col-md-6">
 					<table class="table">
 						<thead>
 							<tr>
@@ -65,26 +66,26 @@
 							</tr>
 						</thead>
 						<tbody>	
-						<tr>
-							<td>Tim Hooroways</td>
-							<td>Minefel</td>
-							<td>Germen</td>
-						</tr>
-						<tr>
-							<td>Tim Hooroways</td>
-							<td>Minefel</td>
-							<td>Germen</td>
-						</tr>
-						<tr>
-							<td>Tim Hooroways</td>
-							<td>Minefel</td>
-							<td>Germen</td>
-						</tr>
+							<tr>
+								<td>Tim Hooroways</td>
+								<td>Minefel</td>
+								<td>Germen</td>
+							</tr>
+							<tr>
+								<td>Tim Hooroways</td>
+								<td>Minefel</td>
+								<td>Germen</td>
+							</tr>
+							<tr>
+								<td>Tim Hooroways</td>
+								<td>Minefel</td>
+								<td>Germen</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
-				<div class="col-6">
-					<div class="d-flex">
+				<div class="col-md-6 ">
+					<div class="d-flex mb-4">
 						<div class="mostRead">
 							<p class="heading">Most Read Format</p>
 							<p class="typeOfBook">PRINT</p>
@@ -101,67 +102,109 @@
 				</div>
 			</div>
 			<div class="dashTabs">
-				<div class="tabHeader tabNav">
-					<a class="leftHeading" href="#">
-						<p class="headingAlt">Books</p>
-					</a>
-					<a class="rightHeading" href="#">
-						<p class="">Library <span>(7)</span></p>
-						<p class="">Picks for you</p>
-					</a>
+				<div class="tabHeader tabNav nav nav-tabs" id="nav-tab" role="tablist">
+					<a class="nav-item nav-link" href="#stats-tab" id="stats" data-toggle="tab" role="tab"><p>Stats</p></a>
+					<a href="#book-tab" class="nav-item nav-link active" data-toggle="tab" role="tab"><p class="">Library <span>(7)</span></p></a>
+					<a href="#picks-tab" class="nav-item nav-link " data-toggle="tab" role="tab"><p class="">Picks for you</p></a>
 				</div>
-				<div class="tabContent">
-					<div class="tab-pane">
-						<!-- book grid -->
-						<div class="books row">
-							<div class="book col-md-3">
-								<img src="../static/img/book.jpeg" alt="" class="img-fluid">
-								<p class="bookHeader">Die meinkampf by Adolf Hitler</p>
-								<a href="#" class="tag btn">Loaned</a>
+				<div class="tabContent tab-content" id="nav-tabContent">
+					<div class="tab-pane fade" id="stats-tab" role="tabpanel">
+						<div class="dashData mobile row m-0">
+							<div class="col-md-12 header">
+								<h3>Your favourite Authors in this catergory</h3>
 							</div>
-							<div class="book col-md-3">
-								<img src="../static/img/book.jpeg" alt="" class="img-fluid">
-								<p class="bookHeader">Die meinkampf by Adolf Hitler</p>
-								<a href="#" class="tag btn">Loaned</a>
+							<div class="col-md-6">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Owner</th>
+											<th>Nationality</th>
+										</tr>
+									</thead>
+									<tbody>	
+										<tr>
+											<td>Tim Hooroways</td>
+											<td>Minefel</td>
+											<td>Germen</td>
+										</tr>
+										<tr>
+											<td>Tim Hooroways</td>
+											<td>Minefel</td>
+											<td>Germen</td>
+										</tr>
+										<tr>
+											<td>Tim Hooroways</td>
+											<td>Minefel</td>
+											<td>Germen</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<div class="book col-md-3">
-								<img src="../static/img/book.jpeg" alt="" class="img-fluid">
-								<p class="bookHeader">Die meinkampf by Adolf Hitler</p>
-								<a href="#" class="tag btn">Loaned</a>
+							<div class="col-md-6">
+								<div class="d-flex">
+									<div class="mostRead">
+										<p class="heading">Most Read Format</p>
+										<p class="typeOfBook">PRINT</p>
+									</div>
+									<div class="totalRead">
+										<p class="heading">Total read/Own</p>
+										<p class="actualTotal">4/7</p>
+									</div>
+								</div>
+								<div class="reRead">
+									<p class="heading">Most Reread book</p>
+									<p>Just My Type: A Book About Fonts by Simon Garfield</p>
+								</div>
 							</div>
-							<div class="book col-md-3">
-								<img src="../static/img/book.jpeg" alt="" class="img-fluid">
-								<p class="bookHeader">Die meinkampf by Adolf Hitler</p>
-								<a href="#" class="tag btn">Loaned</a>
-							</div>
-							<div class="book col-md-3">
-								<img src="../static/img/book.jpeg" alt="" class="img-fluid">
-								<p class="bookHeader">Die meinkampf by Adolf Hitler</p>
-								<a href="#" class="tag btn">Loaned</a>
-							</div>
-							<div class="book col-md-3">
-								<img src="../static/img/book.jpeg" alt="" class="img-fluid">
-								<p class="bookHeader">Die meinkampf by Adolf Hitler</p>
-								<a href="#" class="tag btn">Loaned</a>
-							</div>
-							
 						</div>
 					</div>
-					<div class="tab-pane"></div>
+					<div class="tab-pane fade show active" id="book-tab" role="tabpanel">
+						<!-- book grid -->
+						<div class="books row">
+							{% for book in data %}
+							<div class="book col-md-3 col-6">
+								
+								<img src="" alt="" class="img-fluid">
+								
+								<p class="bookHeader">{{ book["title"]["rendered"] }}</p>
+								<a href="#" class="tag btn">Loaned</a>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="tab-pane fade" id="picks-tab" role="tabpanel">
+						<h1>Feel the beauty</h1>
+						<p>Hello</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="personalInfo col-md-2">
+		<div class="personalInfo col-md-3">
+			<div class="userDetail">
+				<img src="../static/img/hlaudi.jpg" alt="" class="img-fluid circle-img">
+				<p>Hlaudi Motswaneng
+					<br>
+					<span class="small">Joined since 2020</span></p>
+				
+			</div>
+			<div class="prevBooks">
+				<p>YOU HAVE READ <span class="bookNr">4</span> Books this last month.</p>
+				<div class="bookImgs d-flex">
+					{% for image in img %}
+					<img src="{{ image['source_url'] }}" alt="" class="img-fluid">
+				
+					{% endfor %}
+				</div>
+			</div>
 			
 		</div>
 	</div>
-	</main>
+	{% for book in data %}
+		{{ book["featured_media"] }}
+		{% endfor %}
+</main>
 
 
-
-<!-- scripts -->
-<script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
-</body>
-</html>
+{% endblock %} 

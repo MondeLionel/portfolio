@@ -1,0 +1,65 @@
+@media (max-width: 1061px) {
+	.personalInfo{display: none;}
+	.menu{display: none;}
+	.books{
+		padding: 30px;
+	}
+	.book{}
+	.bookHeader{}
+	.customContainer{}
+	.heading{}
+	.dashTabs img{
+		max-width: 100%;
+	}
+	.dashboard header{
+		margin-bottom: 1em;
+	}
+	.mainContent{max-width: 100%;flex: 0 0 100%;}
+}
+
+@media (max-width: 768px) {
+/* 	#stats{
+		visibility: visible;
+	} */
+	.dashboard p.headingAlt{
+		display: none;
+	}
+	.mainHeader .mianContent{
+		margin:0;
+		padding: 0;
+	}
+	.sideNavOpen .mainHeader .mianContent::after{
+		display: none;
+	}
+	.dashboard .topBar {justify-content: space-between;margin: 0;}
+	.dashboard .topBar a:last-of-type{
+		display: none;
+	}
+	
+	.dashboard .mainNav input{width: 80%;line-height: 1;border: none;background-color: antiquewhite;}
+}
+
+@media (max-width: 435px) {
+	#stats{
+		visibility: visible;
+	}
+	.sideNavOpen .cool-nav{padding: 1em;/*! align-items: center; */padding-top: 7em;font-size: 0.6em;}
+	.dashData.desktop{
+		display: none;
+	}
+	.dashboard .leftHeading p:nth-child(2){
+	display: block;
+}
+	.mainHeader .mianContent h1{letter-spacing: -1px;text-shadow: none;}
+	#nav-icon1{
+		width:20px;
+	}
+	.tabHeader{
+		justify-content:flex-start;
+	}
+	
+	.tabHeader .leftHeading{
+		margin-right:1em;
+	}
+	.mainHeader .mianContent{margin: 0;padding: 0;}
+}
