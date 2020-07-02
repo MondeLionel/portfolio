@@ -32,7 +32,7 @@ var playmusic = $('.play-music');
 var stopMusic = $('.pause-music');
 var appMenuItem = $('.menu-item');
 var sound = new Howl({
-  src: ['../static/audio/1.mp3'],
+  src: ['../static/audio/I_cant_breate.mp3'],
   autoplay: false,
   loop: false,
   volume: 0.5,

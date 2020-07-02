@@ -162,13 +162,17 @@
 					<div class="tab-pane fade show active" id="book-tab" role="tabpanel">
 						<!-- book grid -->
 						<div class="books row">
-							{% for book in data %}
+							{% for book in books %}
 							<div class="book col-md-3 col-6">
 								
-								<img src="" alt="" class="img-fluid">
+								<img src="../static/img{{ book['book_cover_url'] }}" alt="" class="img-fluid">
 								
-								<p class="bookHeader">{{ book["title"]["rendered"] }}</p>
+								<p class="bookHeader">{{ book["book"] }}</p>
+								{% if book["loaned"] in books == "true" %}
 								<a href="#" class="tag btn">Loaned</a>
+								{% else%}
+								<a href="#" class="tag btn">Read</a>
+								{% endif %}
 							</div>
 							{% endfor %}
 						</div>
@@ -201,9 +205,9 @@
 			
 		</div>
 	</div>
-	{% for book in data %}
+<!-- 	{% for book in data %}
 		{{ book["featured_media"] }}
-		{% endfor %}
+		{% endfor %} -->
 </main>
 
 
