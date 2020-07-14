@@ -120,8 +120,15 @@ $('.menu-1').on('click', function(e){
 
 
 
-/* end event listeners */
+// end event listeners
+
+
+/**
+ *  listen for scroll event 
+ * @returns {DomElement}
+ */ 
 function addScrolled(e){
+	e.preventDefault();
   if ($(document).scrollTop() > 10) {
     $('body').addClass("scrolled");
       
@@ -142,11 +149,21 @@ addScrolled();
 
 
 // NOT FUNCTIONS BUT CLOSURES ?
+
+/*
+* Open menu
+* @returns {Element} 
+*/
 function openMenu(){
 	return body.addClass("sideNavOpen");
 	
 }
 
+
+/*
+* transition to another page
+* @returns {Function}
+*/
 function openMusic(){
 	return function(){
 		body.removeClass("sideNavOpen");
@@ -154,8 +171,6 @@ function openMusic(){
 		setTimeout(function(){
 			body.addClass("music-open");
 		},1000)
-		
-		
 	}
 	
 }
@@ -171,7 +186,7 @@ function playAudio (){
 	return function(){
 		if(sound._src != null || sound._src != undefined){
 			sound.play();
-			console.log(`${sound._src} is currently playing`);
+			console.log(`I can't Breathe`);
 		}else{
 			console.log(`${sound._src} is empty`);
 		}

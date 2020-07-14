@@ -1141,6 +1141,9 @@ ul{
 	margin-bottom: 1em;
 	justify-content: space-between;
 	flex-wrap: nowrap;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
 }
 
 .scrolled .mainNav{
@@ -1169,8 +1172,10 @@ ul{
 
 .dashboard.scrolled .customContainer{
 	
-/* 	padding-top: 5em; */
+/*! padding-top: 5em; */
 }
+
+.dashboard.scrolled main{/*! padding-top: 7em; */}
 
 .dashboard .mainNav .navigation #nav-icon1{
 	margin: 0;
@@ -1203,7 +1208,7 @@ ul{
 	max-width: 1320px;
 	margin: 0 auto;
 }
-
+.dashboard main{padding-top: 5em;}
 .dashboard .topBar{
 	justify-content: space-between;
 	align-items: center;

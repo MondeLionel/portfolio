@@ -56,35 +56,27 @@
 				<div class="col-md-12 header">
 					<h3>Your favourite Authors in this catergory</h3>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<table class="table">
 						<thead>
 							<tr>
 								<th>Name</th>
-								<th>Owner</th>
-								<th>Nationality</th>
+								<th>Publisher</th>
+								<th>Country</th>
 							</tr>
 						</thead>
 						<tbody>	
+							{% for author in books[4:] %}
 							<tr>
-								<td>Tim Hooroways</td>
-								<td>Minefel</td>
-								<td>Germen</td>
-							</tr>
-							<tr>
-								<td>Tim Hooroways</td>
-								<td>Minefel</td>
-								<td>Germen</td>
-							</tr>
-							<tr>
-								<td>Tim Hooroways</td>
-								<td>Minefel</td>
-								<td>Germen</td>
-							</tr>
+								<td><p>{{ author["author"]["name"] }}</p></td>
+								<td><p>{{ author["author"]["publisher"] }}</p></td>
+								<td><p>{{ author["author"]["country"] }}</p></td>
+							</tr> 
+							{% endfor %}
 						</tbody>
 					</table>
 				</div>
-				<div class="col-md-6 ">
+				<div class="col-md-4 ">
 					<div class="d-flex mb-4">
 						<div class="mostRead">
 							<p class="heading">Most Read Format</p>
@@ -123,21 +115,13 @@
 										</tr>
 									</thead>
 									<tbody>	
+										{% for author in books[4:] %}
 										<tr>
-											<td>Tim Hooroways</td>
-											<td>Minefel</td>
-											<td>Germen</td>
-										</tr>
-										<tr>
-											<td>Tim Hooroways</td>
-											<td>Minefel</td>
-											<td>Germen</td>
-										</tr>
-										<tr>
-											<td>Tim Hooroways</td>
-											<td>Minefel</td>
-											<td>Germen</td>
-										</tr>
+											<td><p>{{ author["author"]["name"] }}</p></td>
+											<td><p>{{ author["author"]["publisher"] }}</p></td>
+											<td><p>{{ author["author"]["country"] }}</p></td>
+										</tr> 
+										{% endfor %}
 									</tbody>
 								</table>
 							</div>
@@ -168,11 +152,7 @@
 								<img src="../static/img{{ book['book_cover_url'] }}" alt="" class="img-fluid">
 								
 								<p class="bookHeader">{{ book["book"] }}</p>
-								{% if book["loaned"] in books == "true" %}
-								<a href="#" class="tag btn">Loaned</a>
-								{% else%}
-								<a href="#" class="tag btn">Read</a>
-								{% endif %}
+								<a href="#" class="btn btn-primary"><p>{{ book["category"] }}</p></a>
 							</div>
 							{% endfor %}
 						</div>
@@ -194,10 +174,10 @@
 				
 			</div>
 			<div class="prevBooks">
-				<p>YOU HAVE READ <span class="bookNr">4</span> Books this last month.</p>
+				<p>YOU HAVE READ <span class="bookNr">{{ books_read }}</span> Books this last month.</p>
 				<div class="bookImgs d-flex">
-					{% for image in img %}
-					<img src="{{ image['source_url'] }}" alt="" class="img-fluid">
+					{% for image in books %}
+					<img src="../static/img{{ image['book_cover_url'] }}" alt="" class="img-fluid">
 				
 					{% endfor %}
 				</div>
@@ -205,8 +185,8 @@
 			
 		</div>
 	</div>
-<!-- 	{% for book in data %}
-		{{ book["featured_media"] }}
+<!-- 	{% for author in books %}
+		<p>{{author["author"]}}</p>
 		{% endfor %} -->
 </main>
 

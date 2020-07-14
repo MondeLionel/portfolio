@@ -26,6 +26,12 @@
 </div>
 
 {% block content %}{% endblock %}
+	<div class="music-wrapper">	
+		<div class="music-nav paused">
+			<span><img src="{{ url_for('static', filename='img/icon_pause.svg') }}" alt="" class="pause-music"></span>
+			<span><img src="{{ url_for('static', filename='img/arrow_triangle-right.svg') }}" alt="" class="play-music"></span>
+		</div>
+	</div>
 
 		<script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript"></script>
 		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
