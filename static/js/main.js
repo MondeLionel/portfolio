@@ -33,6 +33,8 @@ var playmusic = $('.play-music');
 var stopMusic = $('.pause-music');
 var appMenuItem = $('.menu-item');
 var closeMenu = $('#nav-icon1');
+
+
 var sound = new Howl({
   src: ['../static/audio/I_cant_breate.mp3'],
   autoplay: false,
@@ -70,6 +72,7 @@ pauseMusic.on('click', closeMusic());
 playmusic.on('click', playAudio());
 stopMusic.on('click', stopAudio()); 
 appMenuItem.on('click', closeAppMenu());
+$('.menu-1').on('click', appMenu());
 
 
 
@@ -113,10 +116,7 @@ $(document).on("scroll", function() {
   });
 
 // app menu
-$('.menu-1').on('click', function(e){
-		e.preventDefault();
-		appMenu();
-})
+
 
 
 
@@ -241,12 +241,9 @@ function appMenu(){
 function closeAppMenu(){
 	return function (){
 		$(".mobile").removeClass("menu-open");
-		$('.app-content').addClass('rotate-in');
+		// $('.app-content').addClass('rotate-in');
 		console.log("in close app menu")
-		setTimeout(function(){
-			$('.app-content').removeClass('rotate-a-bit');
-
-		}, 2000)
+		
 	}
 
 }

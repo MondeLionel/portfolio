@@ -986,26 +986,34 @@ background-position-y: 116%;
 .app_3 .mobile{background-color: #ad3434;}
 
 .app_1 .background-menu{
-	background-color: #1a2f2f;
+	background-color: #fff8dc;
 	width:100%;
 	height: 100%;
 	padding: 0 1em;
 	position: relative;
+	transition-property: background-color;
+	transition-delay: 0.3s;
+	transition-timing-function: ease;
+	transition-duration: 0.2s;
 }
 
+.app_1 .menu-open .background-menu{background-color: #293b4a;transition-delay: 0s;}
+
 .app_1 .background-menu .user-details{display: flex;width: 90%;padding: 0.3em;text-align: left;margin-top: 0em;padding-top: 2em;}
-.app_1 .background-menu .app-content{background-color: white;position: absolute;top: 0;left: 0;width: 100%;height: 100%;/*! padding: 1em; */transform: scale(1) translateX(0) rotateY(360deg);border-radius: 10px;transition: transform 0.6s cubic-bezier(0,.93,.03,1);}
+.app_1 .background-menu .app-content{background-color: white;position: absolute;top: 0;left: 0;width: 101%;height: 102%;/*! padding: 1em; *//*! transform: scale(1) translateX(0) rotateY(360deg); */border-radius: 10px;transition: transform 0.6s cubic-bezier(0,.93,.03,1);}
 .app_1 .background-menu .circle-img{clip-path: circle();max-width: 5em;object-fit: cover;width: 2em;height: 2em;}
-.app_1 .background-menu ul{padding: 0;width: 30%;margin-top: 3em;}
-.app_1 .background-menu ul li{text-align: right;font-size: 0.9em;margin-bottom: 1em;text-transform: lowercase;opacity: 0.95;position: relative;}
-.app_1 .background-menu ul li a{text-decoration: none;color: #fff;}
+.app_1 .background-menu ul{padding: 0;width: 34%;margin-top: 3em;}
+.app_1 .background-menu ul li{text-align: right;font-size: 0.83em;margin-bottom: 1.5em;text-transform: lowercase;opacity: 0.95;position: relative;letter-spacing: 1px;}
+.app_1 .background-menu ul li a{text-decoration: none;color: #fff;font-weight: bold;}
 .app_1 .background-menu p{font-size: 0.8em;}
 .app_1 .background-menu .user-details p{margin-left: 1em;}
 .app_1 .background-menu .user-details span{}
 .app_1 .menu-open .background-menu  .app-content{
-	transform: scale(0.7) translateX(80%);
+	transform: scale(0.7) translateX(180px);
 	transform-origin: left;
 	transition: transform 0.5s ease;
+	border-radius: 33px;
+	overflow: hidden;
 }
 .app_1 .background-menu ul li:hover::after{
 	content: "";
