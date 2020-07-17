@@ -50,7 +50,7 @@
 					<h3 class="heading">Art and science</h3>
 					<p class="headingAlt">Some interesting Stats</p>
 				</div>
-				<a href="#" class="btn btn-primary btn-rounded">Add new book</a>
+				<a href="#" class="btn btn-primary btn-rounded _jsForm" >Add new book</a>
 			</header>
 			<div class="dashData desktop row m-0">
 				<div class="col-md-12 header">
@@ -159,8 +159,15 @@
 					</div>
 
 					<div class="tab-pane fade" id="picks-tab" role="tabpanel">
-						<h1>Feel the beauty</h1>
-						<p>Hello</p>
+						<div class="row">
+						{% for book in books[:2] %}
+							<div class="book col-md-3 col-6">
+								<img src="../static/img{{ book['book_cover_url'] }}" alt="" class="img-fluid">
+								<p class="bookHeader">{{ book["book"] }}</p>
+								<a href="#" class="btn btn-primary"><p>{{ book["category"] }}</p></a>
+							</div>
+							{% endfor %}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -178,7 +185,6 @@
 				<div class="bookImgs d-flex">
 					{% for image in books %}
 					<img src="../static/img{{ image['book_cover_url'] }}" alt="" class="img-fluid">
-				
 					{% endfor %}
 				</div>
 			</div>
@@ -189,6 +195,16 @@
 		<p>{{author["author"]}}</p>
 		{% endfor %} -->
 </main>
+<div class="addBookForm">
+	<a href="#" class="close btn-danger btn _jsFormClose"><img src="../static/img/icon_close.svg" alt="">CANCEL</a>
+	<form action="#" id="bookForm">
+		<input type="text" class="form-control" placeholder="TITLE" name="booktitle" id="booktitle">
+		<input type="text" class="form-control" placeholder="AUTHOR" name="" id="">
+		<input type="text" class="form-control" placeholder="ISBN" name="" id="">
+		<input type="file" name="" id="" class="form-control">
+		<button type="submit" class="btn btn-success">Add book</button>
+	</form>
+</div>
 
 
 {% endblock %} 

@@ -52,6 +52,8 @@ var sound = new Howl({
   onplayerror: function(error) {
     sound.once('unlock', function() {
       playAudio();
+      console.log(error);
+
   })
 
     console.log(error);
@@ -73,6 +75,14 @@ playmusic.on('click', playAudio());
 stopMusic.on('click', stopAudio()); 
 appMenuItem.on('click', closeAppMenu());
 $('.menu-1').on('click', appMenu());
+$('._jsForm').on('click', function(){
+	body.addClass('form-open');
+	body.removeClass('sideNavOpen')
+})
+
+$('._jsFormClose').on('click', function(){
+	body.removeClass('form-open');
+})
 
 
 
@@ -127,8 +137,8 @@ $(document).on("scroll", function() {
  *  listen for scroll event 
  * @returns {DomElement}
  */ 
-function addScrolled(e){
-	e.preventDefault();
+function addScrolled(){
+	
   if ($(document).scrollTop() > 10) {
     $('body').addClass("scrolled");
       

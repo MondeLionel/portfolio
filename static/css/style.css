@@ -1021,7 +1021,7 @@ background-position-y: 116%;
 	position: absolute;
 	width: 9em;
 	height: 100%;
-	left: -3em;
+	left: -2em;
 	border-bottom-right-radius: 21px;
 	border-top-right-radius: 21px;
 	z-index: -1;
@@ -1124,13 +1124,33 @@ ul{
 	opacity: 0;
 	transition:opacity 0.5s;
 }
+.dashboard .addBookForm{background-color: aliceblue;padding: 2em;position: absolute;width: 100%;top: 0em;height: 100vh;z-index: 2;transform: translateX(100%);transition: transform 0.3s ease;}
+.dashboard.addBook .addBookForm{}
+#bookForm{width: 50%;margin: 4em auto;}
+.addBookForm input{margin: 1em 0em;border: 1px solid transparent;font-weight: bold;}
+.addBookForm input:focus,
+.addBookForm input:active,
+.addBookForm input:hover{
+	
+	box-shadow: none;
+	border: 1px solid #000;
+	font-weight: bold;
+}
+
+.dashboard.form-open .addBookForm{
+	display: block;
+	transform: translateX(0);
+	transition: transform 0.3s ease-in;
+}
+.addBookForm label{}
+
 
 .dashboard.render{
 	opacity: 1;
 	background-color: beige;
 	transition: all 0.5s ease-in;
 }
-
+.dashboard.render.form-open{overflow-y: hidden;}
 
 .dashboard .loader{
 	display: none;
@@ -1151,7 +1171,7 @@ ul{
 	flex-wrap: nowrap;
 	position: fixed;
 	width: 100%;
-	z-index: 1;
+	z-index: 2;
 }
 
 .scrolled .mainNav{
@@ -1282,6 +1302,8 @@ ul{
 	line-height: 1;
 	font-size: 0.8em;
   padding: 0.8em 2em;
+	overflow: hidden;
+	max-width: 145px;
 }
 
 .dashboard .tag{
@@ -1354,7 +1376,12 @@ margin-top: 1em;
 
 .dashTabs .book{
 	margin-bottom:3em;
+	height: 360px;
+	overflow: hidden;
 }
+
+.book a{}
+.book a p{color: #fff;font-weight: bold;letter-spacing: 0.8px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 
 .personalInfo{padding: 0;}	
 
