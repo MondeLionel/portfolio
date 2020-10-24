@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Monde Nyawose</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/swiper.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
 	 <!-- <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"> -->
@@ -13,31 +14,53 @@
 <body class="{{ bodyClass }} loading">
 
 	<div class="loader">
-	<!-- <h3>"Perhaps yesterday you decided wrongly about me. Perhaps today you misjudge me as well. However, I remain myself. I have never cared about others misjudging me."</h3>
-		<p><i>Cao Mengde - Prince of Wei</i></p> -->
+	<h3>"Perhaps yesterday you decided wrongly about me. Perhaps today you misjudge me as well. However, I remain myself. I have never cared about others misjudging me."</h3>
+		<p><i>Cao Mengde - Prince of Wei</i></p>
 	</div>
 
 
-<div class="cool-nav">
-	<a href="https://github.com/MondeLionel" target="_blank">GITHUB</a>
-	<a href="https://codepen.io/mondenyawose" target="_blank">CODEPEN</a>
-	<a class="_jsOpenMusic" href="javascript:void(0)">SAMPLES</a>
-	<a href="/dashboard">SAMPLE DASHBOARD</a>
-</div>
+{% include 'partials/nav.html' %}
 
 {% block content %}{% endblock %}
+
+
+<!-- HxU5CS1mRPdW
+HxU5CS1mRPdW -->
 	<div class="music-wrapper">	
 		<div class="music-nav paused">
 			<span><img src="{{ url_for('static', filename='img/icon_pause.svg') }}" alt="" class="pause-music"></span>
 			<span><img src="{{ url_for('static', filename='img/arrow_triangle-right.svg') }}" alt="" class="play-music"></span>
 		</div>
 	</div>
-
+{% include 'partials/modals.html' %}
 		<script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript"></script>
 		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
-		<!-- <script src="{{ url_for('static', filename='js/particles.min.js') }}"></script> -->
-		<!-- <script src="{{ url_for('static', filename='js/anime.min.js') }}"></script> -->
+		<script src="{{ url_for('static', filename='js/swiper.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/anime.min.js') }}"></script>
 		<script src="{{ url_for('static', filename='js/howler.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/locomotive-scroll.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+
 		<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+		<script>
+			//check of we are in CV page
+			if(document.documentURI.endsWith("cv") === true){
+				const scroll = new LocomotiveScroll({
+					el: document.querySelector('[data-scroll-container]'),
+					smooth:true,
+					lerp:0.1,
+					multiplier:2
+				});
+			}
+
+
+	 	imagesLoaded(document.querySelectorAll('img'), () => document.body.classList.remove('loading'));
+
+		
+
+
+
+
+</script>
 	</body>
 </html>

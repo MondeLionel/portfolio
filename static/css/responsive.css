@@ -1,4 +1,10 @@
 @media (max-width: 1061px) {
+	
+	
+
+	.dashboard .mainNav .navigation{
+		display: block;
+	}
 	.personalInfo{display: none;}
 	.sideNavOpen.dashboard{
 		overflow-y:hidden; 

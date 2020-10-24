@@ -103,7 +103,7 @@
 					<div class="tab-pane fade" id="stats-tab" role="tabpanel">
 						<div class="dashData mobile row m-0">
 							<div class="col-md-12 header">
-								<h3>Your favourite Authors in this catergory</h3>
+								<h3>Your favourite 5 Authors in this catergory</h3>
 							</div>
 							<div class="col-md-6">
 								<table class="table">
@@ -137,8 +137,7 @@
 									</div>
 								</div>
 								<div class="reRead">
-									<p class="heading">Most Reread book</p>
-									<p>Just My Type: A Book About Fonts by Simon Garfield</p>
+									<p>Most Read</p>
 								</div>
 							</div>
 						</div>
@@ -196,12 +195,12 @@
 		{% endfor %} -->
 </main>
 <div class="addBookForm">
-	<a href="#" class="close btn-danger btn _jsFormClose"><img src="../static/img/icon_close.svg" alt="">CANCEL</a>
+	<a href="#" class="closeBtn btn-danger btn _jsFormClose"><img src="../static/img/icon_close.svg" alt="" class="img-fluid">CANCEL</a>
 	<form action="#" id="bookForm">
-		<input type="text" class="form-control" placeholder="TITLE" name="booktitle" id="booktitle">
-		<input type="text" class="form-control" placeholder="AUTHOR" name="" id="">
-		<input type="text" class="form-control" placeholder="ISBN" name="" id="">
-		<input type="file" name="" id="" class="form-control">
+		<input type="text" class="form-control" placeholder="TITLE" name="book-title" id="book-title">
+		<input type="text" class="form-control" placeholder="AUTHOR" name="author" id="author">
+		<input type="text" class="form-control" placeholder="ISBN" name="isbn" id="isbn">
+		<input type="file" name="book-cover" id="book-cover" class="form-control">
 		<button type="submit" class="btn btn-success">Add book</button>
 	</form>
 </div>

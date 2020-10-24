@@ -1,22 +1,132 @@
 // call global objects into our function scope
 
-(function(w,d,$){
+(function(w,d,$,s,anime){
 
-	$(document).ready(function () {
-// first page load
-setTimeout(
-	function(){
-		if(window.location.pathname === '/'){
-			$('body').addClass("show-permission");
-		}
+$(document).ready(function () {
 
-		$('body').removeClass("loading")
-		$('body').addClass("render")
-	}, 1000);
 
 
 })//end dom ready
 
+
+$(window).load(function(){
+		// first page load
+		/*
+		* Run only once of page load
+		* @params 
+		* @returns
+		*/ 
+
+
+		// lets animate the terminal
+		// terminalAnim();
+
+
+
+
+		typerWriter()
+
+		//lets find out about our images
+
+		$('main').imagesLoaded()
+		  .always( function( instance ) {
+		    console.log('all images loaded');
+		  })
+		  .done( function( instance ) {
+		    console.log('all images successfully loaded');
+		  })
+		  .fail( function() {
+		    console.log('all images loaded, at least one is broken');
+		  })
+		  .progress( function( instance, image ) {
+		    var result = image.isLoaded ? 'loaded' : 'broken';
+		    console.log( 'image is ' + result + ' for ' + image.img.src );
+		  });
+
+		
+		setTimeout(
+			function(){
+				
+				$('body').removeClass("loading")
+				$('body').addClass("render")
+			}, 1000);
+
+
+		// initialize swiper and howler
+
+
+		var mySwiper = new Swiper('.history',{
+			slidesPerView:1,
+
+		})
+
+		// we want to run an animation on certain events
+		// such as oninit and onslidechange
+		// For  no other reason other than that we can
+		var cvSwiper = new Swiper('.swiper-container.cv',{
+			slidesPerView:1
+		})
+
+		 	let el = document.querySelectorAll('#whish li');
+		 	let textanim = document.getElementsByClassName('animtext')
+
+	 	anime({
+	 		targets:textanim,
+	 		translateY:0,
+	 		delay:anime.stagger(100)
+	 	})
+
+
+	 // 	var tl = anime.timeline({
+		//   easing: 'easeOutExpo',
+		//   duration: 750
+		// });
+
+		// tl.add({
+		// 	targets:textanim,
+		// 	translateY:0
+		// }, '-=20')
+
+	
+
+
+		cvSwiper.on('slideChange', function(){
+				// lets run a function to start anime animation
+				console.log("slide changes");
+
+			})
+
+
+		var sound = new Howl({
+			src: ['../static/audio/I_cant_breate.mp3'],
+			autoplay: false,
+			loop: false,
+			volume: 0.5,
+
+			onload:function(){
+				console.log("sound loaded");
+
+			},
+			onend: function() {
+				music_nav.removeClass("play");
+				music_nav.addClass("paused");
+			},
+			onplayerror: function(error) {
+				sound.once('unlock', function() {
+					playAudio();
+					console.log(error);
+
+				})
+
+				console.log(error);
+			}
+		});
+
+		
+	})
+
+
+// declare variables as many as possible
 var body = $('body');
 var projects = $("#projects");
 var menu = $('.navigation');
@@ -33,40 +143,78 @@ var playmusic = $('.play-music');
 var stopMusic = $('.pause-music');
 var appMenuItem = $('.menu-item');
 var closeMenu = $('#nav-icon1');
+let nameAnim = $('.mydetails');
+let closeCode = $('.code a');
 
 
-var sound = new Howl({
-  src: ['../static/audio/I_cant_breate.mp3'],
-  autoplay: false,
-  loop: false,
-  volume: 0.5,
-  // 
-  onload:function(){
-  	console.log("sound loaded");
+// TYPEWRITER EFFECT SIMPLE
+let i = 0;
+let text = 'Hello There. This website will use sound in Chrome. Download my CV if it tickles your fancy.'
+let speed = 100;
 
-  },
-  onend: function() {
-    music_nav.removeClass("play");
-	music_nav.addClass("paused");
-  },
-  onplayerror: function(error) {
-    sound.once('unlock', function() {
-      playAudio();
-      console.log(error);
-
-  })
-
-    console.log(error);
+function typerWriter(){
+	if(i < text.length){
+		document.getElementById('oText').innerHTML += text.charAt(i);
+		i++;
+		setTimeout(typerWriter,speed)
+	}
 }
-});
+
+
+
+// animate CV
+var cVtl = anime.timeline({
+	easing:'easeOutExpo',
+	duration:1000
+})
+
+// console.log(cVtl)renderedText
+
+
+let cvVisible = anime({
+	targets: '.renderedText',
+	opacity:[0,1],
+	duration:500
+})
+
+
+
+// lets get opacity to zero then add class d-none
+
+
+
+// remove d-none and then transition opacity and then start animations
 
 
 
 
 // ******** EVENTS LISTENERS *********** //
+ 
+/*
+* add permissions COOKIES
+*	@TODO Refactor
+*
+*/ 
 
+$("#no").on('click', function(){
+	document.cookie = "allowsound=no;path=/;max-age=259200";
+	body.removeClass("show-permission");
+})
+$("#yes").on('click', function(){
+	document.cookie = "allowsound=yes;path=/;max-age=259200";
+	body.removeClass("show-permission");
+})
 
-// listen for click on menu
+closeCode.on('click', function(e){
+	e.preventDefault()
+	cVtl.add({
+		targets: '.terminalVisible',
+		translateX: '-100%',
+		opacity: 0
+	})
+
+	cvVisible.play()
+})
 
 
 openApps.on('click', openMusic());
@@ -133,6 +281,13 @@ $(document).on("scroll", function() {
 // end event listeners
 
 
+// declarative function?
+let animateWords = function(){
+	nameAnim.children().addClass("animate--in")
+}
+
+
+
 /**
  *  listen for scroll event 
  * @returns {DomElement}
@@ -190,6 +345,7 @@ function closeMusic(){
 		body.removeClass("music-open");
 	}
 }
+
 
 
 function playAudio (){
@@ -258,7 +414,11 @@ function closeAppMenu(){
 
 }
 
-})(window,document,jQuery)
+
+
+
+
+})(window,document,jQuery,Swiper,anime)
 
 
 
