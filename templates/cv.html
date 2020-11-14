@@ -4,7 +4,7 @@
 <main>
 	<!-- <h1>ABP - You too can't do this me</h1> -->
 
-	<div class="codeBlock row ">
+	<div class="codeBlock row terminal">
 
 		<div class="col-12 d-flex justify-content-center align-items-center terminalVisible">
 			<div class="code">
@@ -13,7 +13,7 @@
 					<p id="oText">>  </p>
 					
 				</div>
-				<a href="javascript:void(0)">Dismiss</a>
+				<a href="javascript:void(0)" class="closeTerminal">Dismiss</a>
 			
 			</div>
 		</div>
@@ -27,17 +27,18 @@
 								<h2 data-scroll data-scroll-speed="2" data-scroll-delay="0.3">
 									<span class="animtext">{{ article['title'] }}</span>
 								</h2>
-								<h4>
-									<span class="animtext">{{ article['subtitle'] }}</span>
-								</h4>
-								<p class="date"  data-scroll data-scroll-speed="1" data-scroll-delay="0.1">
-									<span class="animtext">{{ article['date'] }}</span>
-								</p>
+								
 								<div class="imgWrapper">
 									<img data-scroll data-scroll-speed="2" data-scroll-position="" src="../static/img{{ article['img_url']}}" alt="uni" class="img-fluid">
 								</div>
 								<div class="contentWrapper row">
 									<div class="articleContent col-md-6">
+										<h4>
+											<span class="">{{ article['subtitle'] }}</span>
+										</h4>
+										<p class="date">
+											<span class="">{{ article['date'] }}</span>
+										</p>
 										{{ article['content'] | safe }}
 
 									</div>
@@ -57,12 +58,9 @@
 							<a href="javascript:void(0)">NEXT</a>
 						</div>
 				</div>
-
-					
+				
 			</div>
 		</div>
-
-
 	</div>
 </main>
 

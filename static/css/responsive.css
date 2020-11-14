@@ -17,12 +17,13 @@
 	.book{}
 	.bookHeader{}
 	.customContainer{}
-	.heading{}
+	.dashboard .heading{font-size: 1rem;}
 	.dashTabs img{
 		max-width: 100%;
 	}
 	.dashboard header{
 		margin-bottom: 1em;
+		margin-top: 2em;
 	}
 	.mainContent{max-width: 100%;flex: 0 0 100%;}
 }
@@ -31,6 +32,15 @@
 /* 	#stats{
 		visibility: visible;
 	} */
+	
+	body{
+		overflow: hidden;
+	}
+	
+	.bg{
+		overflow: hidden;
+		background-position-x: 65%;
+	}
 	.dashboard p.headingAlt{
 		display: none;
 	}
@@ -41,7 +51,7 @@
 	.sideNavOpen .mainHeader .mianContent::after{
 		display: none;
 	}
-	.dashboard .topBar {justify-content: space-between;margin: 0;}
+	.dashboard .topBar {justify-content: space-between;margin: 0;display: flex;}
 	.dashboard .topBar a:last-of-type{
 		display: none;
 	}
@@ -50,10 +60,24 @@
 }
 
 @media (max-width: 435px) {
+	.cool-nav a{font-size: 1.6rem;width: 100%;margin: 0;overflow: auto;/*! height: 2em; */font-weight: bold;font-style: italic;}
+	.navigation{}
 	#stats{
 		visibility: visible;
 	}
-	.sideNavOpen .cool-nav{padding: 1em;/*! align-items: center; */padding-top: 7em;font-size: 0.6em;}
+	.cool-nav{
+		transform: rotate(0);
+		top: 0;
+		right: 0;
+		left: 0;
+		flex-wrap: unset;
+		flex-direction: column;
+		height: 100vh;
+		background-color: black;
+		width: 100vw;
+		transform: translateX(100%);
+	}
+	.sideNavOpen .cool-nav{padding: 1em;/*! align-items: center; */padding-top: 1em;font-size: 0.6em;position: absolute;z-index: 5;height: 100vh;display: flex;flex-direction: column;justify-content: center;transform: none;width: 100%;right: 0;background-color: black;color: #000;background-image: none;align-items: center;}
 	.dashData.desktop{
 		display: none;
 	}
@@ -72,4 +96,11 @@
 		margin-right:1em;
 	}
 	.mainHeader .mianContent{margin: 0;padding: 0;}
+	
+/* 	works */
+	
+	#music-list .apps{}
+	
+	
+	
 }

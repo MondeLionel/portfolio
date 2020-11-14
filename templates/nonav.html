@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Monde Nyawose</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+	 <!-- <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"> -->
+	<style></style>
+</head>
+<body class="{{ bodyClass }} loading">
+
+	<div class="loader">
+
+	</div>
+
+
+
+{% block content %}{% endblock %}
+
+		
+		<script src="{{ url_for('static', filename='vendor/js/jquery.min.js') }}" type="text/javascript"></script>
+		<script src="{{ url_for('static', filename='vendor/js/bootstrap.min.js') }}" type="text/javascript"></script>
+		<script src="{{ url_for('static', filename='vendor/js/locomotive-scroll.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/imagesloaded.pkgd.min.js') }}"></script>
+
+		<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+		<script>
+			//check of we are in CV page
+			if(document.documentURI.endsWith("cv") === true){
+				const scroll = new LocomotiveScroll({
+					el: document.querySelector('[data-scroll-container]'),
+					smooth:true,
+					lerp:0.1,
+					multiplier:2
+				});
+			}
+
+			if(document.documentURI.endsWith("work")){
+				const workScroll = new LocomotiveScroll({
+					el: document.querySelector('[data-scroll-container]'),
+					smooth:true,
+					lerp:0.05,
+					multiplier:1
+				});
+
+
+				workScroll.on('call', derp)	
+
+				function derp(){
+					console.log("hello derp")
+				}
+
+
+			}
+			imagesLoaded(document.querySelectorAll('img'),{background:true}, () => document.body.classList.remove('loading'));
+
+		
+</script>
+	</body>
+</html>

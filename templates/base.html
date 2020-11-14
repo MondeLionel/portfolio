@@ -4,8 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Monde Nyawose</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/swiper.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/css/swiper.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vendor/css/splitting.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
 	 <!-- <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"> -->
@@ -24,22 +25,18 @@
 {% block content %}{% endblock %}
 
 
-<!-- HxU5CS1mRPdW
-HxU5CS1mRPdW -->
-	<div class="music-wrapper">	
-		<div class="music-nav paused">
-			<span><img src="{{ url_for('static', filename='img/icon_pause.svg') }}" alt="" class="pause-music"></span>
-			<span><img src="{{ url_for('static', filename='img/arrow_triangle-right.svg') }}" alt="" class="play-music"></span>
-		</div>
-	</div>
+<!-- music player-->
+
 {% include 'partials/modals.html' %}
-		<script src="{{ url_for('static', filename='js/jquery.min.js') }}" type="text/javascript"></script>
-		<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" type="text/javascript"></script>
-		<script src="{{ url_for('static', filename='js/swiper.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/anime.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/howler.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/locomotive-scroll.min.js') }}"></script>
-		<script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/jquery.min.js') }}" type="text/javascript"></script>
+		<script src="{{ url_for('static', filename='vendor/js/bootstrap.min.js') }}" type="text/javascript"></script>
+		<script src="{{ url_for('static', filename='vendor/js/swiper.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/anime.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/howler.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/locomotive-scroll.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/imagesloaded.pkgd.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/splitting.min.js') }}"></script>
+
 
 		<script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
 		<script>
@@ -53,13 +50,21 @@ HxU5CS1mRPdW -->
 				});
 			}
 
+			if(document.documentURI.endsWith("work") === true){
+				const workScroll = new LocomotiveScroll({
+					el: document.querySelector('[data-scroll-container]'),
+					smooth:true,
+					lerp:0.05,
+					multiplier:1
+				});
+			}
+			imagesLoaded(document.querySelectorAll('img'),{background:true}, () => document.body.classList.remove("funload"));
 
-	 	imagesLoaded(document.querySelectorAll('img'), () => document.body.classList.remove('loading'));
+			function derp (){
+				console.log("hello derp")
+			}	
 
-		
-
-
-
+			
 
 </script>
 	</body>

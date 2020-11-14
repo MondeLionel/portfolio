@@ -1,39 +1,34 @@
 // call global objects into our function scope
 
-(function(w,d,$,s,anime){
+(function(w,d,$,s,anime,Howler,Splitting){
 
 $(document).ready(function () {
-
+ console.log('dom ready');
 
 
 })//end dom ready
 
 
-$(window).load(function(){
-		// first page load
-		/*
-		* Run only once of page load
-		* @params 
-		* @returns
-		*/ 
+$(window).on('load',function(){
 
-
-		// lets animate the terminal
-		// terminalAnim();
-
-
-
-
-		typerWriter()
 
 		//lets find out about our images
 
-		$('main').imagesLoaded()
+		$('document').imagesLoaded()
 		  .always( function( instance ) {
 		    console.log('all images loaded');
 		  })
 		  .done( function( instance ) {
 		    console.log('all images successfully loaded');
+		    $('body').removeClass("loading")
+		    $('body').addClass("render")
+		    bgAnim.play()
+		    tl.play()
+		    navtl.play()
+		    brandTl.play()
+
+
+
 		  })
 		  .fail( function() {
 		    console.log('all images loaded, at least one is broken');
@@ -44,12 +39,20 @@ $(window).load(function(){
 		  });
 
 		
-		setTimeout(
-			function(){
+		// setTimeout(
+		// 	function(){
 				
-				$('body').removeClass("loading")
-				$('body').addClass("render")
-			}, 1000);
+		// 		// $('body').removeClass("loading")
+		// 		$('body').addClass("render")
+		// 	}, 5000);
+
+		// Front Page text animation with Anime.js
+
+		// @TODO refactor to gsap spilttext plugin
+		// @TODO  add threejs 3d scene on later versions
+
+		
+	
 
 
 		// initialize swiper and howler
@@ -67,63 +70,22 @@ $(window).load(function(){
 			slidesPerView:1
 		})
 
-		 	let el = document.querySelectorAll('#whish li');
-		 	let textanim = document.getElementsByClassName('animtext')
-
-	 	anime({
-	 		targets:textanim,
-	 		translateY:0,
-	 		delay:anime.stagger(100)
-	 	})
-
-
-	 // 	var tl = anime.timeline({
-		//   easing: 'easeOutExpo',
-		//   duration: 750
-		// });
-
-		// tl.add({
-		// 	targets:textanim,
-		// 	translateY:0
-		// }, '-=20')
-
+		 	
 	
-
-
 		cvSwiper.on('slideChange', function(){
 				// lets run a function to start anime animation
 				console.log("slide changes");
 
 			})
-
-
-		var sound = new Howl({
-			src: ['../static/audio/I_cant_breate.mp3'],
-			autoplay: false,
-			loop: false,
-			volume: 0.5,
-
-			onload:function(){
-				console.log("sound loaded");
-
-			},
-			onend: function() {
-				music_nav.removeClass("play");
-				music_nav.addClass("paused");
-			},
-			onplayerror: function(error) {
-				sound.once('unlock', function() {
-					playAudio();
-					console.log(error);
-
-				})
-
-				console.log(error);
-			}
-		});
-
-		
 	})
+
+
+
+
+
+
+
+
 
 
 // declare variables as many as possible
@@ -145,21 +107,263 @@ var appMenuItem = $('.menu-item');
 var closeMenu = $('#nav-icon1');
 let nameAnim = $('.mydetails');
 let closeCode = $('.code a');
+let contentContainer = $('.mianContent');
+let mainContainer = $('.mainHeader')[0];
+let sun =  $('.sunMoon');
+let myImg =  $('.mainImage');
+let myImgWr =  $('.imgWrapper');
+let svgCircle = $('.circle svg');
 
 
-// TYPEWRITER EFFECT SIMPLE
-let i = 0;
-let text = 'Hello There. This website will use sound in Chrome. Download my CV if it tickles your fancy.'
-let speed = 100;
 
-function typerWriter(){
-	if(i < text.length){
-		document.getElementById('oText').innerHTML += text.charAt(i);
-		i++;
-		setTimeout(typerWriter,speed)
+
+
+/*////////////////////////////// */
+
+
+
+
+
+
+
+var mainAnim = Splitting({
+	/* target: String selector, Element, Array of Elements, or NodeList */
+	target: ".animText",
+	/* by: String of the plugin name */
+	by: "words",
+	/* key: Optional String to prefix the CSS variables */
+	key: null
+});
+
+var headerAnim = Splitting({
+	/* target: String selector, Element, Array of Elements, or NodeList */
+	target: ".myLogo",
+	/* by: String of the plugin name */
+	by: "chars",
+	/* key: Optional String to prefix the CSS variables */
+	key: null
+});
+
+
+var sound = new Howl({
+	src: ['../static/audio/see_dee.mp3'],
+	autoplay: false,
+	loop: false,
+	volume: 0.5,
+
+	onload:function(){
+		console.log("sound loaded");
+		$('.music-wrapper').removeClass('hiddenPlayer')
+
+	},
+	onend: function() {
+		music_nav.removeClass("play");
+		music_nav.addClass("paused");
+	},
+	onplayerror: function(error) {
+		sound.once('unlock', function() {
+			playAudio();
+			console.log(error);
+
+		})
+
+		console.log(error);
 	}
+});
+
+
+
+/*// main copy animation //*/
+
+var bgAnim = anime({
+	targets:'.bg',
+	scale:[1.5, 1],
+	easing:'easeOutExpo',
+	delay:20,
+	duration:2000
+
+})
+var tl = anime.timeline({
+	targets: '.word',
+	delay: function(el, i) { return (i * 100) + 1500 },
+	duration: 500,
+	easing: 'easeOutExpo',
+	direction: '',
+	loop: false
+});
+
+tl
+.add({
+	translateY: [150, 0],
+		  // override the easing parameter
+		  easing: 'easeOutExpo',
+		})
+
+
+
+
+/*// side Nav animation //*/
+var navtl = anime.timeline({
+	targets: '.cool-nav a span',
+	delay: function(el, i) { return (i * 100) + 1500 },
+	duration: 2500,
+	easing: 'easeOutExpo',
+	direction: '',
+	loop: false
+});
+
+navtl
+.add({
+	translateY: [120, 0],
+		  // override the easing parameter
+		  easing: 'easeOutExpo',
+		})
+
+
+
+/*// Brand logo animation //*/
+var brandTl = anime.timeline({
+		  targets: '.myLogo [data-char]', //add split char
+		  delay: function(el, i) { return (i * 100) + 500 },
+		  duration: 700,
+		  easing: 'easeOutExpo',
+		
+		  loop: false
+		});
+
+brandTl.add({translateY: [120, 0]})
+
+
+/*// rotator cuff animation //*/
+var rotateTl = anime.timeline({
+		  targets: '.circle svg', 
+		  duration: 10000,
+		  easing: 'linear',
+		  loop: true
+		});
+
+rotateTl.add({rotate:360})
+
+
+/*////////////////////////////// */
+
+
+
+
+
+
+// Mousemove shandis on body
+if(document.documentURI.endsWith("/") === true){
+let mainText = $('.hover');
+let cursor = $('.cursor')[0];
+
+const textMove = function(e){
+	const text = $('.animText');
+	const { offsetX:x, offsetY:y } = e, 
+	{ offsetWidth: width, offsetHeight:height } = this,
+	move = 25,
+	xMove = x/ width * (move*40+2) - move,
+	yMove =  y/ height * (move*40+2) - move;
+
+	// text.style.transform = `translate(${xMove}px, ${yMove}px); `
+	text.css("transform",'translate(' + xMove + 10 + 'px ' + yMove +'px)')
+	if(e.type === 'mouseleave') { 
+		$('.cursor').css("padding", 10 + "px"); 
+		text.css("transform", '');
+	}
+	 $('.cursor').css("padding", 30 + "px")
+	// console.log(cursor)
+
+	console.log(xMove,yMove)
 }
 
+
+
+
+const editCursor = e => {
+	const { clientX:x, clientY:y} =e;
+
+	cursor.style.left= x + 'px';
+	cursor.style.top = y + 'px';
+
+}
+
+mainText.each(function(index, item){
+	// console.log(index, item)
+	item.addEventListener('mousemove', textMove)
+})
+
+mainText.each(function(index, item){
+	// console.log(index, item)
+	item.addEventListener('mouseleave', textMove)
+})
+
+// mainText.each(b => b.addEventListener('mouseleave', cusormove))
+window.addEventListener('mousemove', editCursor);
+
+
+
+}
+
+function LoadIns(){
+
+}
+
+
+
+/*
+	 when we hover on the body on menu open the container becomes a 3d card
+*/ 
+	// anchor link click on sidebar on menu click event
+$('._jsSideNav').on('click', function(){
+
+	// we will reverse the load-in animations
+	if(bgAnim.began){
+		bgAnim.reverse()
+	}
+	console.log(bgAnim)
+	tl.reverse()
+	navtl.reverse()
+	brandTl.reverse()
+
+	body.toggleClass('sideNavOpen');
+	$('#nav-icon1').toggleClass('open');
+
+})
+
+
+if(document.documentURI.endsWith("cv") === true){
+	let i = 0;
+	let text = 'Hello There. This website will use sound in Chrome. Download my CV if it tickles your fancy.'
+	let text2 = ['Loading assets','Done!']
+	let speed = 100;
+
+	function typerWriter(){
+		if(i < text.length){
+			document.getElementById('oText').innerHTML += text.charAt(i);
+			i++;
+			setTimeout(typerWriter,speed)
+		}
+
+		
+
+			
+
+	}
+
+	typerWriter()
+	text2.map(function(text,index){
+			$('.outPut')[0].innerHTML = text
+			console.log(index)
+		})
+}
+
+
+
+
+$('.closeTerminal').on('click',function(){
+	$('.codeBlock').removeClass('terminal')
+})
 
 
 // animate CV
@@ -179,11 +383,25 @@ let cvVisible = anime({
 
 
 
-// lets get opacity to zero then add class d-none
+let el = document.querySelectorAll('#whish li');
+let textanim = document.getElementsByClassName('animtext')
+
+anime({
+	targets:textanim,
+	translateY:0,
+	delay:anime.stagger(100)
+})
 
 
 
-// remove d-none and then transition opacity and then start animations
+
+// @TODO lets get opacity to zero then add class d-none
+// @TODO remove d-none and then transition opacity and then start animations
+
+
+
+
+
 
 
 
@@ -232,20 +450,9 @@ $('._jsFormClose').on('click', function(){
 	body.removeClass('form-open');
 })
 
-
-
 	
-	// anchor link click on sidebar on menu click event
-	$('._jsSideNav').on('click', function(){
-		body.toggleClass('sideNavOpen');
-		// changeText();
-		$('#nav-icon1').toggleClass('open');
-	})
-	
-	$('.hidePlayer').on('click', removeActive())
+$('.hidePlayer').on('click', removeActive())
 	// item.on('click', itemSelected())
-
-	
 	// proximity menu open
 	// check for null values
 	
@@ -274,11 +481,20 @@ $(document).on("scroll", function() {
   });
 
 // app menu
-
-
-
-
 // end event listeners
+
+
+
+
+
+
+/*////////////////////////////// */
+
+
+
+
+
+
 
 
 // declarative function?
@@ -304,12 +520,6 @@ function addScrolled(){
 }
 addScrolled();
 
-// // function to add active class
-// function classBasedNav (){
-// 	// e.preventDefault();(
-// 		 $(this).siblings().removeClass("active");
-// 		 $(this).addClass("active");
-// 	}
 
 
 
@@ -352,7 +562,8 @@ function playAudio (){
 	return function(){
 		if(sound._src != null || sound._src != undefined){
 			sound.play();
-			console.log(`I can't Breathe`);
+			svgCircle.css('opacity','0');
+
 		}else{
 			console.log(`${sound._src} is empty`);
 		}
@@ -368,6 +579,7 @@ function stopAudio(){
 		sound.pause()
 		music_nav.removeClass("play");
 		music_nav.addClass("paused");
+		svgCircle.css('opacity','1');
 	}
 
 }
@@ -418,7 +630,7 @@ function closeAppMenu(){
 
 
 
-})(window,document,jQuery,Swiper,anime)
+})(window,document,jQuery,Swiper,anime,Howler,Splitting)
 
 
 

@@ -1,19 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="permWrapper">
-	<div class="permission">
-		<div class="permText">
-			<p>This Website uses audio.</p>
-			<p class="small">Allow audio?</p>
-		</div>
-		<div class="permBtn">
-			<a href="#" data-reply="1" id="yes">Yes</a>
-			<a href="#" data-reply="0" id="no">No</a>
-		</div>
-	</div>
-</div>
 
+<div class="headerWrapper">	
+	<div class="siteName">	
+		<h4><i><span class="myLogo">Borzoi Vagrant</span></i></h4>	
+	</div>
 	<a class="navigation _jsSideNav" href="javascript:void(0)">
 		<div id="nav-icon1">
 			<span></span>
@@ -21,21 +13,51 @@
 			<span></span>
 		</div>
 	</a>
+</div>
 
 	
 
-{% include 'partials/works.html' %}
+<div class="bg">
+<div class="container">
+	<div class="headingIntro">
+		<h1 class="hover">
+			<span class="animText">Frontend Developer</span>
+		</h1>
+		<h1 class="hover">
+			<span class="animText">Writer</span>
+		</h1>
+		<h1 class="hover">
+			<span class="animText">Videographer</span>
+		</h1>
+		<h1 class="hover">
+			<span class="animText">Entrepreneur</span>
+		</h1>
+	</div>
+	<div class="bgImg"></div>
 
-<div class="row container mainHeader hide-body">
-	<!-- <div class="proximity"></div> -->
-	<div class="mianContent">
-		<h3>"The mind's poison is the heart." - unknown Author</h3>
-		<div class="mydetails">
-			<h1>MONDE NYAWOSE</h1>
-			<p>Front-end Developer, Project Management</p>
+</div>
+</div>
+<div class="cursor"></div> 
+
+	<div class="music-wrapper hiddenPlayer">
+	<div class="circle">
+		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+		    <defs>
+		        <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
+		    </defs>
+		    <circle cx="150" cy="100" r="75" fill="none"/>
+		    <g>
+		        <use xlink:href="#circlePath" fill="none"/>
+		        <text fill="#fff">
+		            <textPath xlink:href="#circlePath">gongong gongong gongong gongong gong</textPath>
+		        </text>
+		    </g>
+		</svg>	
+
+		<div class="music-nav paused">
+			<span><img src="{{ url_for('static', filename='img/icon_pause.svg') }}" alt="" class="pause-music"></span>
+			<span><img src="{{ url_for('static', filename='img/arrow_triangle-right.svg') }}" alt="" class="play-music"></span>
 		</div>
-		<div class="sunMoon"></div>
-		<img src="../static/img/mondeblue.png" alt="" class="img-fluid mainImage">
 	</div>
 </div>
 

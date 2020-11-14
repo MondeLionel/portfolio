@@ -24,6 +24,12 @@ def cVitae():
     return resp
 
 
+@app.route('/work')
+def work():
+    resp = make_response(render_template('work.html', bodyClass="work"))
+    return resp
+
+
 @app.route('/dashboard')
 def dashboard():
     books = database.books

@@ -181,7 +181,7 @@ history = [{
     "date": "Jan 2011",
     "img_url": "/cv - large/monde.JPG",
     "img_url_2": {
-        "url": "/cv - large/jhbrrg.jpg",
+        "url": "/cv - large/hello.jpg",
         "img_title": "The gang at Sandton Convention Center left to right, Monde, Terrence, Tracy, Tshepo"
     }
 },
@@ -248,7 +248,7 @@ history = [{
     "date": " April 2016",
     "img_url": "/cv - large/rrg.JPG",
     "img_url_2": {
-        "url": "/cv - large/jhbrrg.jpg",
+        "url": "/cv - large/pitch.JPG",
         "img_title": "The gang at Sandton Convention Center left to right, Monde, Terrence, Tracy, Tshepo"
     }
 },
@@ -266,11 +266,11 @@ history = [{
     {
     "title": "More Zaka",
     "subtitle": "Kemang Kemang kemang",
-    "content": "<p>Money and friendships dont go well together. Wonga, the brainman behind Hotdees and a superb operator, cuts loose and takes his capital. Business falters and ends up dead. time to brush off the old laptop and begin anew. We start a new company called PICADOO. Investors love it. People Love it. Also incorporate an Arts marketplace called WEZART. 2018 is the year of tech. Picadoo is funded by foreign and local investors. Wezart grows. I am now a product manager and developer. We pitch and land R500 000 in seed funding. Google likes us too, we get an invite to Google launchpad. SAMSUNG likes we get an invite to CPT for their GES. Life is looking up. Thanda Cele introuces us to managing events. FINDING FEELS all the way</p>",
+    "content": "<p>Wonga, the brainman behind Hotdees and a superb operator, cuts loose and takes his capital. Business falters and ends up dead. time to brush off the old laptop and begin anew. We start a new company called PICADOO. Investors love it. People Love it. Also incorporate an Arts marketplace called WEZART. 2018 is the year of tech. Picadoo is funded by foreign and local investors. Wezart grows. I am now a product manager and developer. We pitch and land R500 000 in seed funding. Google likes us too, we get an invite to Google launchpad. SAMSUNG likes we get an invite to CPT for their GES. Life is looking up. Thanda Cele introuces us to managing events. FINDING FEELS all the way</p>",
     "date": "jan - dec 2018",
     "img_url": "/cv - large/picadoo.JPG",
     "img_url_2": {
-        "url": "/cv - large/jhbrrg.jpg",
+        "url": "/cv - large/certification.jpg",
         "img_title": "The gang at Sandton Convention Center left to right, Monde, Terrence, Tracy, Tshepo"
     }
 },
@@ -281,18 +281,18 @@ history = [{
     "date": "jan - dec 2019",
     "img_url": "/cv - large/wezart.JPG",
     "img_url_2": {
-        "url": "/cv - large/jhbrrg.jpg",
+        "url": "/cv - large/speech.JPG",
         "img_title": "The gang at Sandton Convention Center left to right, Monde, Terrence, Tracy, Tshepo"
     }
 },
     {
     "title": "COVID End-game",
     "subtitle": "And St Peter, No oes in heaven",
-    "content": "<p>Year of Covid. I am no longer at FV and start a new company called GongongLive media. Streaming services with our own platform. We specialize in simplifying payments for content. Still in the works. I consult and freelance on the side while getting the platform working. Art director extrondiaire, Thanda Cele, is my cofounder, Shermar Stuart - another excellent and young operator - is heading up OPS. I'm knee deep in web development and  </p>",
+    "content": "<p>Year of Covid. I am no longer at FV and start a new company called GongongLive media. Streaming services with our own platform. We specialize in simplifying payments for content. Still in the works. I consult and freelance on the side while getting the platform working. Art director extraordinaire, Thanda Cele, is my cofounder, Shermar Stuart - an excellent and young operator - is heading up OPS. I've delved into the deep end. Nginx server conf is my second home. Internal APIs linked to offshore databases and microservices for validating tickets are my endgame. </p>",
     "date": "March 2020",
-    "img_url": "/cv - large/wezart.JPG",
+    "img_url": "/cv - large/hibike.JPG",
     "img_url_2": {
-        "url": "/cv - large/jhbrrg.jpg",
+        "url": "/cv - large/feels.jpg",
         "img_title": "The gang at Sandton Convention Center left to right, Monde, Terrence, Tracy, Tshepo"
     }
 }]
