@@ -18,19 +18,58 @@
 	
 
 <div class="bg">
-<div class="container">
+<div class="bgWrapper">
 	<div class="headingIntro">
 		<h1 class="hover">
-			<span class="animText">Frontend Developer</span>
+			<a href="javascript:void(0)"><span class="animText">Frontend Developer</span></a>
+			<img src="{{ url_for('static', filename='img/cv_lg/invo.JPG') }}" alt="OKMALUMKOOLKAT">
+			<div class="marquee">
+				<div class="marqueeWrapper">
+					<span>FRONTEND Developer</span>
+					<span>FRONTEND Developer</span>
+					<span>FRONTEND Developer</span>
+					<span>FRONTEND Developer</span>
+				
+				</div>
+			</div>
 		</h1>
 		<h1 class="hover">
-			<span class="animText">Writer</span>
+			<a href="javascript:void(0)"><span class="animText">FICTION Writer</span></a>
+			<img src="{{ url_for('static', filename='img/cv_lg/speech.jpg') }}" alt="Vagrant">
+			<div class="marquee">
+				<div class="marqueeWrapper">
+					<span>fiction WRITER</span>
+					<span>fiction WRITER</span>
+					<span>fiction WRITER</span>
+					<span>fiction WRITER</span>
+				</div>
+			</div>
 		</h1>
 		<h1 class="hover">
-			<span class="animText">Videographer</span>
+			<a href="javascript:void(0)"><span class="animText">Videographer</span></a>
+			<img src="{{ url_for('static', filename='img/cv_lg/pitch.jpg') }}" alt="AT GONG">
+			<div class="marquee">
+				<div class="marqueeWrapper">
+					<span>videographer</span>
+					<span>videographer</span>
+					<span>videographer</span>
+					<span>videographer</span>
+				
+				</div>
+			</div>
 		</h1>
 		<h1 class="hover">
-			<span class="animText">Entrepreneur</span>
+			<a href="javascript:void(0)"><span class="animText">Entrepreneur</span></a>
+			<img src="{{ url_for('static', filename='img/cv_lg/jhbrrg.jpg') }}" alt="PRESENTATION">
+			<div class="marquee">
+				<div class="marqueeWrapper">
+					<span>entrepreneur</span>
+					<span>entrepreneur</span>
+					<span>entrepreneur</span>
+					<span>entrepreneur</span>
+					
+				</div>
+			</div>
 		</h1>
 	</div>
 	<div class="bgImg"></div>
@@ -40,7 +79,7 @@
 <div class="cursor"></div> 
 
 	<div class="music-wrapper hiddenPlayer">
-	<div class="circle">
+	<div class="circle" title="click my center">
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
 		    <defs>
 		        <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
@@ -61,6 +100,9 @@
 	</div>
 </div>
 
+
+<!-- include borzoi -->
+{% include 'partials/exp.html' %}
 <!-- scripts -->
 
 {% endblock %} 

@@ -2,6 +2,10 @@ font-family: 'Poppins', sans-serif;
 :root{
 	--primary-color: #5661b3;
 	--bg-color: #dae1e7;
+	--marquee-width: 100vw;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
 };
 
 
@@ -25,8 +29,8 @@ body{
 	overflow-x: hidden;
 	overflow-y: auto;
 	min-height: 100vh;
-	background-color: #0c1d2d;
-  font-family: 'Poppins', sans-serif;
+	background-color: black;
+  font-family: 'League Spartan', sans-serif;
 	transition: all 1s ease-in;
 	background-position: bottom;
 	/*! background-image: url(../img/dreaming.jpg); */
@@ -303,8 +307,8 @@ body.loading .cool-nav{opacity: 0;}
 }
 
 
-.bg{background-image: url(../img/9.jpg);background-size: cover;background-repeat: no-repeat;height: 100vh;/*! background-blend-mode: difference; */background-color: black;display: flex;align-items: center;}
-
+.bg{/*! background-image: url(../img/9.jpg); */background-size: cover;background-repeat: no-repeat;height: 100vh;/*! background-blend-mode: difference; */background-color: black;display: flex;align-items: center;}
+.bg .bgWrapper{width: 100vw;}
 .mainHeader{
 	display:flex;
 	justify-content: space-around;
@@ -332,6 +336,32 @@ body.loading .cool-nav{opacity: 0;}
 	background-position-y: 102%;
 	width: 100%;
 }
+
+.marquee{position: absolute;top: 0;left: 0;z-index: -1;mix-blend-mode: difference;}
+.marquee .marqueeWrapper{
+	animation-name: marquee;
+	animation-duration: 11s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-play-state: paused;
+	opacity: 0;
+	transform: translate3d(var(--move-initial),0,0);
+}
+.marquee .marqueeWrapper span{color: #fff;font-weight: 900;font-style: italic;mix-blend-mode: exclusion;-webkit-text-stroke: transparent;}
+
+@keyframes marquee{
+	0%{
+		transform: translate3d(var(--move-initial),0,0);
+	}
+	100%{
+		transform: translate3d(var(--move-final),0,0);
+	}
+}
+
+
+
+
+
 
 .sideNavOpen .mainHeader{
 	
@@ -368,8 +398,37 @@ body.loading .cool-nav{opacity: 0;}
 }
 
 
-.headingIntro{padding-top: 7em;}
-.headingIntro h1{color: #fff;font-size: 7vw;position: relative;height: 1.4em;overflow: hidden;white-space: nowrap;transition: transform 0.1s ease;/*! pointer-events: none; */}
+.headingIntro{padding-top: 7em;--marquee-width: 100vw;--offset: 20vw;--move-initial: calc(-25% + var(--offset));--move-final: calc(-50% + var(--offset));}
+.headingIntro h1{color: #fff;font-size: 7vw;position: relative;height: 1.4em;overflow: hidden;white-space: nowrap;transition: transform 0.1s ease;/*! pointer-events: none; */padding-left: 1em;}
+.headingIntro a:hover {
+	opacity:0;
+
+}
+
+.headingIntro h1:hover{
+	overflow: inherit;
+}
+.headingIntro a:hover +img{opacity: 1;transform: translate3d(6vw,0%,0) rotate3d(0,0,1,4deg);transition: all 0.4s;}
+.headingIntro img{
+	opacity: 0;
+	position: absolute;
+	width: 36%;
+	height: 50vh;
+	top: -29vh;
+	object-fit: contain;
+	left: 50%;
+	z-index: -1;
+	transform: translate3d(8vw,0%,0) rotate3d(0,0,0,0deg);
+	/*! mix-blend-mode: darken; */
+}
+.headingIntro .animText{
+	opacity: 1;
+}
+.headingIntro a:hover ~ .marquee .marqueeWrapper{animation-play-state: running;opacity: 1;transition: opacity 0.3s;}
+.headingIntro .hover:hover ~ .marqueeWrapper{
+	opacity: 1;
+	animation-play-state: running;
+}
 .headingIntro h1 span{/*! position: absolute; */pointer-events: none;transition: transform 0.1s linear;-webkit-text-stroke: 2px white;color: transparent;text-transform: uppercase;/*! width: 100%; */}
 .sideNavOpen .proximity.show{
 	display: none;
@@ -484,26 +543,19 @@ perspective: 5000px;
 /************** Nav ****************/
 .cool-nav{
 	display:flex;
-	/*! justify-content:space-between; */
 	
-	align-items:normal;
-	/*! padding:2em; */
 	position: absolute;
-	width: 100vh;
-	/*! transform:translateY(3%); */
-	/*! opacity:0; */
 	transition: all 0.6s cubic-bezier(.9,.03,.69,.22);
-	height: 60px;
+	height: 75px;
 	opacity: 1;
 	flex-wrap: wrap;
 	align-items: center;
-	transform: rotate(90deg);
+	transform: translateX(100%);
 	transform-origin: bottom right;
-	right: 60px;
-	bottom: 0;
-	justify-content: center;
-	background-image: linear-gradient(#180f0f,transparent);
-	z-index: 100;
+	justify-content: space-between;
+	/*! background-image: linear-gradient(#180f0f,transparent); */
+	z-index: 10;
+	transition: transform 0.3s ease-out;
 }
 .cool-nav a{
 	font-weight:100;
@@ -512,27 +564,26 @@ perspective: 5000px;
 	/*! border: 0.1px solid #333; */
 	text-align: center;
 	align-self: center;
-	font-size: 0.7em;
+	font-size: 2vw;
 	width: 22%;
 	position: relative;
 	overflow: hidden;
-	height: 2em;
+	height: 100%;
 	text-transform: uppercase;
-	margin-top: auto;
+	display: flex;
+	align-items: center;
 }
 
-.cool-nav a span{position: absolute;width: 100%;left: 0;}
+.cool-nav a span{position: absolute;width: 100%;left: 0;display: ;}
 .cool-nav a p{font-size: 0.8em;/*! text-align: center; */font-weight: lighter;margin-top: 1em;color: aquamarine;text-transform: uppercase;}
 
 .sideNavOpen .cool-nav{
-	/*! transform: translateX(81px); */
-	/*! opacity:1; */
-	transition: all 0.6s cubic-bezier(.9,.03,.69,.22);
-	/*! margin-top: 1em; */
-	/*! background-color: #0c1d2d; */
-	/*! flex-wrap: wrap; */
-	height: 20em;
-	justify-content: center;
+	transform: translateX(0px);
+	transition: transform 0.6s cubic-bezier(.9,.03,.69,.22);
+	width: 100vw;
+	right: 0;
+	background-color: #000;
+	height: 90vh;
 	bottom: 0;
 }
 
@@ -585,7 +636,7 @@ perspective: 5000px;
 	transition-delay: 1.5s;
 	transition: transform 1s 1.5s cubic-bezier(0.91, 0.01, 0.6, 0.99);
 	color: #fff;
-	opacity: 0;
+	/*! opacity: 0; */
 }
 .music-open .navigation{
 	opacity: 0;
@@ -714,8 +765,11 @@ perspective: 5000px;
 .hiddenPlayer{
 	opacity: 0;
 }
-.music-nav.paused{width: 59px;height: 59px;border-radius: 50px;background-color: red;transition: all 0.3s ease;left: 40%;top: 40%;opacity: 0;}
-
+.music-nav.paused{width: 59px;height: 59px;border-radius: 50px;background-color: bisque;transition: all 0.3s ease;left: 40%;top: 40%;opacity: 0;}
+.music-nav.paused:hover{opacity: 1;}
+svg + .music-nav.paused:hover{}
+.music-nav.paused:hover ~ svg{}
+.music-nav.paused:hover{} + svg{}
 .music-nav.play span:nth-child(2){
 	display: none;
 }
@@ -1736,6 +1790,41 @@ animation-iteration-count: 1;
 #contacts{}
 #contacts .contactMe{}
 #contacts .contactMe h4{}
+
+
+.shenanigans--open .shenanigans{
+	transform: translateX(0);
+	transition: transform 0.5s ease-in;
+}
+.shenanigans{position: absolute;top: 0;background-color: beige;min-height: 100vh;z-index: 100;width: 100%;font-family: 'Playfair Display';transform: translateX(-100%);}
+.nav--borzoi{display: flex;justify-content: space-between;position: fixed;z-index: 2;width: 100vw;padding: 1em;outline: 1px #fff;color: #fff;border-bottom: 1px solid #ebebeb;}
+.shenanigans .wrapper{
+	position: relative;
+}
+
+.nav--borzoi .blog{}
+.nav--borzoi .logo{}
+.nav--borzoi .search{}
+
+
+.main--borzoi{}
+.main--borzoi .borzoi{}
+.main--borzoi .borzoi .item{}
+.main--borzoi .borzoi .item{padding: 0;height: 100vh;background-color: aquamarine;display: flex;justify-content: center;align-items: center;position: relative;}
+.main--borzoi .borzoi .item .item--content{display: flex;justify-content: center;align-items: center;flex-direction: column;height: 100%;z-index: 1;color: #fff;}
+.main--borzoi .borzoi .item .item--content a{color: #000;background-color: #fff;padding: 0.5em 1em;border-radius: 50px;border: 1px solid #fff;text-decoration: none;overflow: hidden;margin-top: 1em;}
+.main--borzoi .borzoi .item .item--content h1{font-size: 10vw;text-align: center;position: relative;overflow: hidden;width: 100vw;height: 1.3em;margin: 0;}
+.main--borzoi .borzoi .item .item--content h1 span{}
+.main--borzoi .borzoi .item .item--content h1 .animate--in{position: absolute;width: 100%;left: 0;}
+.main--borzoi .borzoi .item .item--description{position: absolute;bottom: 0;width: 34%;left: 0;color: #fff;padding: 1em;}
+.main--borzoi .borzoi .item .item--description p{}
+.main--borzoi .borzoi .item .video--item{position: absolute;width: 100%;height: 100%;background-color: bisque;z-index: 0;}
+.main--borzoi .borzoi .item .video--item video{width: 100%;height: 100%;object-fit: cover;}
+.main--borzoi .swiper-slide{
+	height: auto !important;;
+}
+
+
 /**/
 /*animations*/
 

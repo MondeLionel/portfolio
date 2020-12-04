@@ -48,7 +48,7 @@ $(window).on('load',function(){
 
 		// Front Page text animation with Anime.js
 
-		// @TODO refactor to gsap spilttext plugin
+		// @TODO refactor to gsap spiltText plugin
 		// @TODO  add threejs 3d scene on later versions
 
 		
@@ -77,6 +77,25 @@ $(window).on('load',function(){
 				console.log("slide changes");
 
 			})
+
+
+		let borzoiSwiper = new Swiper('.borzoi',{
+			direction:'horizontal',
+			parallax:true
+		})
+
+		borzoiSwiper.on("slideChange", function(){
+			// borzoiTl.play()
+		})
+
+		borzoiSwiper.on("init", function(){
+			
+		})
+
+
+
+
+
 	})
 
 
@@ -113,7 +132,7 @@ let sun =  $('.sunMoon');
 let myImg =  $('.mainImage');
 let myImgWr =  $('.imgWrapper');
 let svgCircle = $('.circle svg');
-
+let shenihan = $('.shn');
 
 
 
@@ -144,6 +163,12 @@ var headerAnim = Splitting({
 	key: null
 });
 
+
+var borzoiContent = Splitting({
+	target: ".animate--in",
+	by:"chars",
+	key:null
+})
 
 var sound = new Howl({
 	src: ['../static/audio/see_dee.mp3'],
@@ -245,6 +270,29 @@ var rotateTl = anime.timeline({
 rotateTl.add({rotate:360})
 
 
+
+
+
+// BORZOI ANIMATION
+
+var borzoiTl = anime.timeline({
+	targets:'h1 .animate--in .char',
+	duration:1000,
+	delay: anime.stagger(10),
+	easing: 'easeInQuad',
+	autoplay:false
+})
+
+borzoiTl.add({
+	translateY:[120,0]
+})
+borzoiTl.add({
+	targets:'.nav--borzoi .myLogo',
+	translateY:[120,0]
+
+})
+
+
 /*////////////////////////////// */
 
 
@@ -257,57 +305,57 @@ if(document.documentURI.endsWith("/") === true){
 let mainText = $('.hover');
 let cursor = $('.cursor')[0];
 
-const textMove = function(e){
-	const text = $('.animText');
-	const { offsetX:x, offsetY:y } = e, 
-	{ offsetWidth: width, offsetHeight:height } = this,
-	move = 25,
-	xMove = x/ width * (move*40+2) - move,
-	yMove =  y/ height * (move*40+2) - move;
+// const textMove = function(e){
+// 	const text = $('.animText');
+// 	const { offsetX:x, offsetY:y } = e, 
+// 	{ offsetWidth: width, offsetHeight:height } = this,
+// 	move = 25,
+// 	xMove = x/ width * (move*40+2) - move,
+// 	yMove =  y/ height * (move*40+2) - move;
 
-	// text.style.transform = `translate(${xMove}px, ${yMove}px); `
-	text.css("transform",'translate(' + xMove + 10 + 'px ' + yMove +'px)')
-	if(e.type === 'mouseleave') { 
-		$('.cursor').css("padding", 10 + "px"); 
-		text.css("transform", '');
-	}
-	 $('.cursor').css("padding", 30 + "px")
-	// console.log(cursor)
+// 	// text.style.transform = `translate(${xMove}px, ${yMove}px); `
+// 	text.css("transform",'translate(' + xMove + 10 + 'px ' + yMove +'px)')
+// 	if(e.type === 'mouseleave') { 
+// 		$('.cursor').css("padding", 10 + "px"); 
+// 		text.css("transform", '');
+// 	}
+// 	 $('.cursor').css("padding", 30 + "px")
+// 	// console.log(cursor)
 
-	console.log(xMove,yMove)
-}
-
-
-
-
-const editCursor = e => {
-	const { clientX:x, clientY:y} =e;
-
-	cursor.style.left= x + 'px';
-	cursor.style.top = y + 'px';
-
-}
-
-mainText.each(function(index, item){
-	// console.log(index, item)
-	item.addEventListener('mousemove', textMove)
-})
-
-mainText.each(function(index, item){
-	// console.log(index, item)
-	item.addEventListener('mouseleave', textMove)
-})
-
-// mainText.each(b => b.addEventListener('mouseleave', cusormove))
-window.addEventListener('mousemove', editCursor);
+// 	console.log(xMove,yMove)
+// }
 
 
 
-}
 
-function LoadIns(){
+// const editCursor = e => {
+// 	const { clientX:x, clientY:y} =e;
+
+// 	cursor.style.left= x + 'px';
+// 	cursor.style.top = y + 'px';
+
+// }
+
+// mainText.each(function(index, item){
+// 	// console.log(index, item)
+// 	item.addEventListener('mousemove', textMove)
+// })
+
+// mainText.each(function(index, item){
+// 	// console.log(index, item)
+// 	item.addEventListener('mouseleave', textMove)
+// })
+
+// // mainText.each(b => b.addEventListener('mouseleave', cusormove))
+// window.addEventListener('mousemove', editCursor);
+
+
 
 }
+
+// function LoadIns(){
+
+// }
 
 
 
@@ -344,11 +392,6 @@ if(document.documentURI.endsWith("cv") === true){
 			i++;
 			setTimeout(typerWriter,speed)
 		}
-
-		
-
-			
-
 	}
 
 	typerWriter()
@@ -401,11 +444,6 @@ anime({
 
 
 
-
-
-
-
-
 // ******** EVENTS LISTENERS *********** //
  
 /*
@@ -434,12 +472,22 @@ closeCode.on('click', function(e){
 	cvVisible.play()
 })
 
+shenihan.on('click', function(e){
+	e.preventDefault()
+	body.toggleClass("shenanigans--open")
+	console.log("shenanigans")
 
-openApps.on('click', openMusic());
+
+	// play animation timeline
+	borzoiTl.pause()
+	borzoiTl.play()
+
+})
+// openApps.on('click', openMusic());
 pauseMusic.on('click', closeMusic());
 playmusic.on('click', playAudio());
 stopMusic.on('click', stopAudio()); 
-appMenuItem.on('click', closeAppMenu());
+// appMenuItem.on('click', closeAppMenu());
 $('.menu-1').on('click', appMenu());
 $('._jsForm').on('click', function(){
 	body.addClass('form-open');
@@ -456,24 +504,24 @@ $('.hidePlayer').on('click', removeActive())
 	// proximity menu open
 	// check for null values
 	
-	if (window.innerWidth > 900){
-		var movementStrength = 6;
-		if(main_content != null || main_content != undefined){
-			main_content.on("mousemove", function(e){
-				if (e.clientX < 618 && e.clientX > 200 && e.clientY > 428){
-					proximity.addClass("show");
-					var xtrans = movementStrength*100 / e.clientX *100 - proximity.width();
-					var xtrans = Math.floor(xtrans);
-					proximity.css("transform","translateX(" + xtrans + "px)");
-					// console.log(Math.floor(xtrans));
-				}else{
-					proximity.removeClass("show");
-				}
-			})
-		}
-	}else{
-		proximity.addClass("d-none")
-	}
+	// if (window.innerWidth > 900){
+	// 	var movementStrength = 6;
+	// 	if(main_content != null || main_content != undefined){
+	// 		main_content.on("mousemove", function(e){
+	// 			if (e.clientX < 618 && e.clientX > 200 && e.clientY > 428){
+	// 				proximity.addClass("show");
+	// 				var xtrans = movementStrength*100 / e.clientX *100 - proximity.width();
+	// 				var xtrans = Math.floor(xtrans);
+	// 				proximity.css("transform","translateX(" + xtrans + "px)");
+	// 				// console.log(Math.floor(xtrans));
+	// 			}else{
+	// 				proximity.removeClass("show");
+	// 			}
+	// 		})
+	// 	}
+	// }else{
+	// 	proximity.addClass("d-none")
+	// }
 
 
 $(document).on("scroll", function() {
@@ -508,17 +556,17 @@ let animateWords = function(){
  *  listen for scroll event 
  * @returns {DomElement}
  */ 
-function addScrolled(){
+// function addScrolled(){
 	
-  if ($(document).scrollTop() > 10) {
-    $('body').addClass("scrolled");
+//   if ($(document).scrollTop() > 10) {
+//     $('body').addClass("scrolled");
       
-    } else {
-      $('body').removeClass("scrolled");
+//     } else {
+//       $('body').removeClass("scrolled");
       
-    }
-}
-addScrolled();
+//     }
+// }
+// addScrolled();
 
 
 
