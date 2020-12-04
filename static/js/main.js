@@ -524,9 +524,9 @@ $('.hidePlayer').on('click', removeActive())
 	// }
 
 
-$(document).on("scroll", function() {
-    addScrolled();
-  });
+// $(document).on("scroll", function() {
+//     addScrolled();
+//   });
 
 // app menu
 // end event listeners
