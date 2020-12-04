@@ -369,7 +369,7 @@ $('._jsSideNav').on('click', function(){
 	if(bgAnim.began){
 		bgAnim.reverse()
 	}
-	console.log(bgAnim)
+	// console.log(bgAnim)
 	tl.reverse()
 	navtl.reverse()
 	brandTl.reverse()
