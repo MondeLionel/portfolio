@@ -17,50 +17,13 @@
 			
 			</div>
 		</div>
-		<div class="col-12 renderedText" data-scroll-container>
-			<div class="swiperWrapper">
-				<div class="swiper-container cv">
-					<div class="swiper-wrapper">
-						{% for article in history%}
-						<div class="swiper-slide">
-							<div class="article">
-								<h2 data-scroll data-scroll-speed="2" data-scroll-delay="0.3">
-									<span class="animtext">{{ article['title'] }}</span>
-								</h2>
-								
-								<div class="imgWrapper">
-									<img data-scroll data-scroll-speed="2" data-scroll-position="" src="../static/img{{ article['img_url']}}" alt="uni" class="img-fluid">
-								</div>
-								<div class="contentWrapper row">
-									<div class="articleContent col-md-6">
-										<h4>
-											<span class="">{{ article['subtitle'] }}</span>
-										</h4>
-										<p class="date">
-											<span class="">{{ article['date'] }}</span>
-										</p>
-										{{ article['content'] | safe }}
+	</div>
 
-									</div>
-									<div class="contentImgWrapper col-md-6" style="transform: translate(0px);">
-										<div class="articleImg" style="transform: translate(0px);">
-											<img data-scroll data-scroll-speed="2" data-scroll-position="top" src="../static/img/{{ article['img_url_2']['url']}}" alt="uni" class="img-fluid">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						{% endfor %}
-						
 
-					</div>
-					<div class="nextItem">
-							<a href="javascript:void(0)">NEXT</a>
-						</div>
-				</div>
-				
-			</div>
-		</div>
+	<!-- MAIN CONTENT -->
+
+	<div class="content renderedText">
+		<h1>HELLO THERE</h1>
 	</div>
 </main>
 
