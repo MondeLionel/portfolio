@@ -678,6 +678,8 @@ function closeAppMenu(){
 
 
 
+
+
 })(window,document,jQuery,Swiper,anime,Howler,Splitting)
 
 

@@ -101,7 +101,11 @@ body.loading .cool-nav{opacity: 0;}
 .music-wrapper{position: fixed;width: 30vw;z-index: 11;bottom: 0;display: flex;right: 0;}
 .music-wrapper svg{fill: antiquewhite;color: #fff;}
 .music-wrapper .circle{position: relative;display: flex;justify-content: center;align-items: center;overflow: hidden;}
-
+.sideNavOpen .music-wrapper{
+	
+	
+	display: none;
+}
 .sideNavOpen .sunMoon{
 	
 	transform: translateY(1px) translateX(-90px);
@@ -1819,12 +1823,16 @@ animation-iteration-count: 1;
 .main--borzoi .borzoi .item .item--description{position: absolute;bottom: 0;width: 34%;left: 0;color: #fff;padding: 1em;}
 .main--borzoi .borzoi .item .item--description p{}
 .main--borzoi .borzoi .item .video--item{position: absolute;width: 100%;height: 100%;background-color: bisque;z-index: 0;}
-.main--borzoi .borzoi .item .video--item video{width: 100%;height: 100%;object-fit: cover;}
+.main--borzoi .borzoi .item .video--item video{width: 100%;height: 100%;object-fit: cover;transform: scale(1.2);transform-origin: left;}
 .main--borzoi .swiper-slide{
 	height: auto !important;;
 }
 
-
+.swiper-slide-active .video--item{}
+ .main--borzoi .borzoi .swiper-slide-active .item .video--item video{
+	transform: scale(1);
+	transition: transform 1s cubic-bezier(.95,.05,.33,.84);
+}
 /**/
 /*animations*/
 
