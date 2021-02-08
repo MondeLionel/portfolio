@@ -13,9 +13,7 @@
 			<span></span>
 		</div>
 	</a>
-</div>
-
-	
+</div>	
 
 <div class="bg">
 <div class="bgWrapper">
@@ -74,7 +72,7 @@
 	</div>
 	<div class="bgImg"></div>
 
-</div>
+	</div>
 </div>
 <div class="cursor"></div> 
 
@@ -83,12 +81,16 @@
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
 		    <defs>
 		        <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
+		         
 		    </defs>
 		    <circle cx="150" cy="100" r="75" fill="none"/>
+		   
 		    <g>
 		        <use xlink:href="#circlePath" fill="none"/>
+		        
 		        <text fill="#fff">
-		            <textPath xlink:href="#circlePath">gongong gongong gongong gongong gong</textPath>
+		            <textPath xlink:href="#circlePath">Hover over me</textPath>
+		           
 		        </text>
 		    </g>
 		</svg>	
@@ -102,9 +104,17 @@
 
 
 <!-- include borzoi -->
-{% include 'partials/exp.html' %}
+<!-- {% include 'partials/exp.html' %} -->
 <!-- scripts -->
 
+
+{% endblock %} 
+
+{% block scripts %}
+		<script src="{{ url_for('static', filename='vendor/js/anime.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/howler.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/imagesloaded.pkgd.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='vendor/js/splitting.min.js') }}"></script>
 {% endblock %} 
 
 

@@ -55,8 +55,16 @@
 	.dashboard .topBar a:last-of-type{
 		display: none;
 	}
-	
+	body.cv{}
 	.dashboard .mainNav input{width: 80%;line-height: 1;border: none;background-color: antiquewhite;}
+	.cv .content .details{width: 95%;}
+	.cv .codeBlock{display: none;}
+	.cv .terminalVisible .code{}
+	.cv .codeBlock .code{}
+	.cv .terminalVisible{}
+	.cv .technical{width: 96%;}
+	.cv .content .imageContainer{}
+	.cv .content .imageContainer img{}
 }
 
 @media (max-width: 435px) {

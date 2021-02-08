@@ -14,9 +14,10 @@ My personal website and portfolio. Python Flask for backend and Jquery/Bootstrap
 2. Page transitions
 3. Experimental Browser Audio functionality (Will fail gracefully if you still use IE)
 4. Javascript event-driven animation (mousemove event)
+5. HTML5 Canvas
 
 ## backend
-1. Simple route
+1. Simple routes
 2. MySQL and SQLAlchemy
 3. Python requests
 

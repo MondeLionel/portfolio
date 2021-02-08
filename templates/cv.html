@@ -2,31 +2,79 @@
 {% block content %}
 
 <main>
-	<!-- <h1>ABP - You too can't do this me</h1> -->
-
-	<div class="codeBlock row terminal">
-
-		<div class="col-12 d-flex justify-content-center align-items-center terminalVisible">
-			<div class="code">
-				<p class="terminalName">Monde@PC <span>MINGW64</span> ~</p>
-				<div class="outPut">
-					<p id="oText">>  </p>
-					
-				</div>
-				<a href="javascript:void(0)" class="closeTerminal">Dismiss</a>
-			
-			</div>
-		</div>
-	</div>
-
-
 	<!-- MAIN CONTENT -->
+	<div class="content renderedText" data-scroll-container>
+		<span class="dot1"></span>
+		<span class="dot2"></span>
+		<div class="navi">
+			<a href="/">back to home</a>
+			<a href="#">menu</a>
+		</div>
+		
+		<div class="heading" data-scroll-section>
+			<h1 data-scroll data-scroll-speed="1">
+				<span class="text">HELLO THERE</span>
+			</h1>
+			<p data-scroll data-scroll-speed="1.5">
+				<span class="text">I'm Monde, web developer that errs on the creative side of the web. I'm an enterprising, self-starter in the true sense of the word having co-founded two startups, <a href="#">Picadoo(defunct)</a> and <a href="#">Gong Live</a>, for personal care and digitizing access to local talent with aitime based payments respectively. </p>
+				</span>
+				<div class="links" data-scroll>
+					<a href="#">Gong</a>
+					<a href="#">amakhala filim</a>
+					<a href="#">Current client link</a>
+				</div>
+			</div>
 
-	<div class="content renderedText">
-		<h1>HELLO THERE</h1>
+			<div class="imageContainer" data-scroll-section style="transform: translate(0px) !important;">
+				<img src="{{ url_for('static', filename='img/monde.jpg') }}" alt="" data-scroll data-scroll-speed="1" data-scroll-position="top">
+			</div>
+			<div class="details" data-scroll-section>
+				<div class="downloads">
+					<a href="{{ url_for('static', filename='files/cv.pdf') }}" download>Download my CV here.</a>
+					<a href="{{ url_for('static', filename='files/cover-letter.pdf') }}" download>Download my Cover letter here.</a>
+					<a href="{{ url_for('static', filename='files/pwo.pdf') }}" download> Download publicly available information here.</a>
+				</div>
+
+				<div class="">
+					<h3>Technologies & Experiments</h3>
+					<p>My aim is to deliver great experiences, blended with my love for multimedia editing, data and gaming. Using those tools, I have made some experiments to express my take on <a href="/experiments">THE WILD WEB</a></p>
+				</div>
+			</div>
+			<div class="cinema" data-scroll-section data-scroll-direction="horizaontal">	
+				<div class="technical" data-scoll>
+					<h3>Videography</h3>
+					<p>In 2015 my interest in videography, photography reached new highs. I've since then started to study the artform, from potraits by local artists to 1960s Japanese cinematography</p>
+				</div>
+				<div class="video" style="transform: translate(0px);" data-scoll data-scroll-speed="2" data-scroll-position="top" >
+					<video  src="{{ url_for('static', filename='video/jap_cinematography.mp4') }}" muted loop autoplay></video>
+					<p class="bubble" data-scroll data-scroll-speed="0.5">The tale of Zatoichi is the masterpiece of Japanese Cinema by Kan Shimozawa</p>
+				</div>	
+			</div>
+			<div class="details" data-scroll-section>
+				<div class="gaming">
+					<h3>Gaming adventure</h3>
+					<p>Phaserjs and P5js are game changers when it comes to 2D games. I've made some strides into simple html 2d games as a possible future avenue should the gaming appetite of South Africans increase in some meaningful way.</p>
+				</div>
+				<div class="editing">
+					<h3>Remixing/Editing</h3>
+					<p>For no reason at all, my love for music and cinema intetwined to create a video mix circa 2012. Ive been doing them ever since</p>
+				</div>
+				<div class="row">
+					<div class="circleVid col-6">
+						<video src="{{ url_for('static', filename='video/1.mp4') }}" muted loop></video>
+					</div>
+					<div class="circleVid col-6">
+						<video src="{{ url_for('static', filename='video/2.mp4') }}" muted loop></video>
+					</div>
+				</div>
+			</div>
+		</div>	
 	</div>
 </main>
 
+{% endblock %} 
 
-
+{% block scripts %}
+	<script src="{{ url_for('static', filename='vendor/js/locomotive-scroll.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/cv/cv.js') }}"></script>
 {% endblock %} 

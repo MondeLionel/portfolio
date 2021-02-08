@@ -30,6 +30,12 @@ def work():
     return resp
 
 
+@app.route('/experiments')
+def woo():
+    resp = make_response(render_template('woo.html', bodyClass="woo"))
+    return resp
+
+
 @app.route('/dashboard')
 def dashboard():
     books = database.books

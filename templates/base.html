@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 {% include 'partials/head.html' %}
+{% block styles %}{% endblock %}
 
 <body class="{{ bodyClass }} loading">
 
@@ -16,29 +17,9 @@
 {% include 'partials/modals.html' %}
 {% include 'partials/scripts.html' %}
 		<script>
-			//check of we are in CV page
-			if(document.documentURI.endsWith("cv") === true){
-				const scroll = new LocomotiveScroll({
-					el: document.querySelector('[data-scroll-container]'),
-					smooth:true,
-					lerp:0.1,
-					multiplier:2
-				});
-			}
-
-			if(document.documentURI.endsWith("work") === true){
-				const workScroll = new LocomotiveScroll({
-					el: document.querySelector('[data-scroll-container]'),
-					smooth:true,
-					lerp:0.05,
-					multiplier:1
-				});
-			}
 			imagesLoaded(document.querySelectorAll('img'),{background:true}, () => document.body.classList.remove("funload"));
-
-			function derp (){
-				console.log("hello derp")
-			}	
 </script>
+
+ {% block scripts %}{% endblock %}
 	</body>
 </html>

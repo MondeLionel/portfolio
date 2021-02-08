@@ -143,8 +143,6 @@ let shenihan = $('.shn');
 
 
 
-
-
 var mainAnim = Splitting({
 	/* target: String selector, Element, Array of Elements, or NodeList */
 	target: ".animText",
@@ -382,23 +380,31 @@ $('._jsSideNav').on('click', function(){
 
 if(document.documentURI.endsWith("cv") === true){
 	let i = 0;
-	let text = 'Hello There. This website will use sound in Chrome. Download my CV if it tickles your fancy.'
+	let text = ['Hello There.',' This website will use sound in Chrome.',' Download my CV if it tickles your fancy.']
 	let text2 = ['Loading assets','Done!']
 	let speed = 100;
+	function festhers(index){
+			document.getElementById('oText').innerHTML += text[index];
+	};
 
 	function typerWriter(){
-		if(i < text.length){
-			document.getElementById('oText').innerHTML += text.charAt(i);
-			i++;
-			setTimeout(typerWriter,speed)
+		for (var i = 0; i < text.length; i++) {
+			setTimeout(festhers(i), speed) 
+			console.log(i)
+			
 		}
+		
+			
 	}
 
-	typerWriter()
-	text2.map(function(text,index){
+
+	function closeCMD(){
+		text2.map(function(text,index){
 			$('.outPut')[0].innerHTML = text
 			console.log(index)
 		})
+	}
+	typerWriter()
 }
 
 
