@@ -5,3 +5,19 @@
 
 body{}
 canvas{}
+
+.error_message{
+	
+	position: absolute;
+	width: 50vw;
+	z-index: 1;
+	height: auto;
+	background-color: red;
+	text-transform: uppercase;
+	padding: 1em;
+}
+
+.error_message h1{font-style: italic;}
+.error_message p{}
+
+.exp_content{position: relative;}

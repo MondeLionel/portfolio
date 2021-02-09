@@ -3,9 +3,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/experiments.css') }}">
 {% endblock %}
 
-<div class="exp_content"></div>
+<div class="exp_content">
+	<div class="error_message">
+		<h1>COULD NOT LOAD 3d ASSETS</h1>
+		<p>remote server might be down</p>
+	</div>
+</div>
  {% block scripts %}
    <script src="{{ url_for('static', filename='vendor/js/p5.min.js') }}"></script>
    <script src="{{ url_for('static', filename='js/exp/star.js') }}" type="text/javascript"></script>
    <script src="{{ url_for('static', filename='js/exp/sketch.js') }}" type="text/javascript"></script>
+   <script src="https://www.cgtrader.com/free-3d-models/45345ee"></script>
  {% endblock %}
