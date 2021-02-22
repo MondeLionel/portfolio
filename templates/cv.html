@@ -16,13 +16,12 @@
 				<span class="text">HELLO THERE</span>
 			</h1>
 			<p data-scroll data-scroll-speed="1.5">
-				<span class="text">I'm Monde, web developer that errs on the creative side of the web. I'm an enterprising, self-starter in the true sense of the word having co-founded two startups, <a href="#">Picadoo(defunct)</a> and <a href="#">Gong Live</a>, for personal care and digitizing access to local talent with aitime based payments respectively. </p>
+				<span class="text">I'm Monde, web developer that errs on the creative side of the web. I'm an enterprising, self-starter in the true sense of the word having co-founded two startups, <a href="https://disrupt-africa.com/2018/08/01/sas-picadoo-formalising-the-african-haircare-industry/" target="_blank">Picadoo(defunct)</a> and <a href="https://gongong.live" target="_blank">Gong Live</a>, for personal care and digitizing access to local talent with aitime based payments respectively. 
 				</span>
-				<div class="links" data-scroll>
-					<a href="#">Gong</a>
-					<a href="#">amakhala filim</a>
-					<a href="#">Current client link</a>
-				</div>
+				<span>
+					I really really don't like popular social media platforms. I prefer longform content, forums and productive spaces.
+				</span>
+			</p>
 			</div>
 
 			<div class="imageContainer" data-scroll-section style="transform: translate(0px) !important;">
@@ -46,7 +45,7 @@
 					<p>In 2015 my interest in videography, photography reached new highs. I've since then started to study the artform, from potraits by local artists to 1960s Japanese cinematography</p>
 				</div>
 				<div class="video" style="transform: translate(0px);" data-scoll data-scroll-speed="2" data-scroll-position="top" >
-					<video  src="{{ url_for('static', filename='video/jap_cinematography.mp4') }}" muted loop autoplay></video>
+					<video id="vid0" src="{{ url_for('static', filename='video/jap_cinematography.mp4') }}" muted loop autoplay></video>
 					<p class="bubble" data-scroll data-scroll-speed="0.5">The tale of Zatoichi is the masterpiece of Japanese Cinema by Kan Shimozawa</p>
 				</div>	
 			</div>
@@ -61,13 +60,20 @@
 				</div>
 				<div class="row">
 					<div class="circleVid col-6">
-						<video src="{{ url_for('static', filename='video/1.mp4') }}" muted loop></video>
+						<!-- <video id="vid1" src="https://gong-staging.cloudaccess.host/wp-content/uploads/2021/02/mischXbreathe-lg.mp4" muted loop></video> -->
+						<video id="vid1" src="{{ url_for('static', filename='video/feel-you-edit-small.mp4') }}" muted loop></video>
 					</div>
 					<div class="circleVid col-6">
-						<video src="{{ url_for('static', filename='video/2.mp4') }}" muted loop></video>
+						<!-- <video id="vid2" src="https://gong-staging.cloudaccess.host/wp-content/uploads/2021/02/solangeXcleo-lg.mp4" muted loop></video> -->
+						<video id="vid2" src="{{ url_for('static', filename='video/solangeXcleo-lg.mp4') }}" muted loop></video>
 					</div>
 				</div>
 			</div>
+				<div class="links" data-scroll>
+					<a href="#">Gong</a>
+					<a href="#">amakhala filim</a>
+					<a href="#">Current client link</a>
+				</div>
 		</div>	
 	</div>
 </main>
@@ -75,6 +81,7 @@
 {% endblock %} 
 
 {% block scripts %}
+
 	<script src="{{ url_for('static', filename='vendor/js/locomotive-scroll.min.js') }}"></script>
 	<script src="{{ url_for('static', filename='js/cv/cv.js') }}"></script>
 {% endblock %} 

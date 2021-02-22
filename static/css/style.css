@@ -13,6 +13,23 @@ font-family: 'Poppins', sans-serif;
 	
 }
 
+div:focus-visible,
+div:focus,
+div:active,
+div:hover{
+	border: none;
+	outline: none;
+}
+
+
+video:focus-visible,
+video:focus,
+video:active,
+video:hover{
+	border: none;
+	outline: none;
+}
+
 html{
 	scrollbar-width:thin;
 }
@@ -1743,12 +1760,13 @@ margin-top: 1em;
 
 .cv .content .imageContainer img{
 	position: absolute;
-	top: 0;
+	top: -5em;
 	left: 0;
 }
 .cv .content img{
 	width: 100%;
 
+	/*! margin: 0 auto; */
 }
 
 
@@ -1757,11 +1775,11 @@ margin-top: 1em;
 .cv .content .details{margin: 2em auto;padding: 2em;width: 65%;}
 .cv .content .video video{width: 100%;/*! position: absolute; */}
 .cv .content .video{
-	border-radius: 291px;
-box-shadow: 0px 42px 40px 1px #c7c7c7;
-border: solid 10px aliceblue;
+/* 	border-radius: 291px; */
+/* box-shadow: 0px 42px 40px 1px #c7c7c7; */
+/* border: solid 10px aliceblue; */
 	position: relative;/*! height: 65vh; */overflow: hidden;
-	width: 96vw;
+	width: 100vw;
 	height: 67vh;
 	margin: 0 auto;
 }
@@ -1769,6 +1787,7 @@ border: solid 10px aliceblue;
 .cv video{
 	width: 100%;
 	height: auto;
+/* 	border-radius: 35px; */
 }
 .cv .technical{
 	margin: 0 auto;
@@ -1776,6 +1795,8 @@ padding: 2em;
 width: 65%;
 }
 
+.cv .circleVid{border-radius: 27px;overflow: hidden;max-height: 600px;}
+.cv .circleVid video{border-radius: 30px;max-height: 520px;}
 .bubble{
 	position: absolute;
 	bottom:2%;

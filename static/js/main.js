@@ -378,41 +378,9 @@ $('._jsSideNav').on('click', function(){
 })
 
 
-if(document.documentURI.endsWith("cv") === true){
-	let i = 0;
-	let text = ['Hello There.',' This website will use sound in Chrome.',' Download my CV if it tickles your fancy.']
-	let text2 = ['Loading assets','Done!']
-	let speed = 100;
-	function festhers(index){
-			document.getElementById('oText').innerHTML += text[index];
-	};
-
-	function typerWriter(){
-		for (var i = 0; i < text.length; i++) {
-			setTimeout(festhers(i), speed) 
-			console.log(i)
-			
-		}
-		
-			
-	}
-
-
-	function closeCMD(){
-		text2.map(function(text,index){
-			$('.outPut')[0].innerHTML = text
-			console.log(index)
-		})
-	}
-	typerWriter()
-}
 
 
 
-
-$('.closeTerminal').on('click',function(){
-	$('.codeBlock').removeClass('terminal')
-})
 
 
 // animate CV

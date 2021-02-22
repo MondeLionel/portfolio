@@ -35,6 +35,11 @@ def woo():
     resp = make_response(render_template('woo.html', bodyClass="woo"))
     return resp
 
+@app.route('/pix')
+def pix():
+    resp = make_response(render_template('pix.html', bodyClass="pix"))
+    return resp
+
 
 @app.route('/dashboard')
 def dashboard():

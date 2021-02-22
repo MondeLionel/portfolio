@@ -1,0 +1,10 @@
+ 
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pix.css') }}">
+{% endblock %}
+
+
+ {% block scripts %}
+   <script src="{{ url_for('static', filename='vendor/js/pixi.min.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/pix/app.js') }}" type="module"></script>
+ {% endblock %}
