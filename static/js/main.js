@@ -4,8 +4,6 @@
 
 $(document).ready(function () {
  console.log('dom ready');
-
-
 })//end dom ready
 
 
@@ -26,9 +24,6 @@ $(window).on('load',function(){
 		    tl.play()
 		    navtl.play()
 		    brandTl.play()
-
-
-
 		  })
 		  .fail( function() {
 		    console.log('all images loaded, at least one is broken');
@@ -50,11 +45,6 @@ $(window).on('load',function(){
 
 		// @TODO refactor to gsap spiltText plugin
 		// @TODO  add threejs 3d scene on later versions
-
-		
-	
-
-
 		// initialize swiper and howler
 
 
@@ -92,19 +82,7 @@ $(window).on('load',function(){
 			
 		})
 
-
-
-
-
 	})
-
-
-
-
-
-
-
-
 
 
 // declare variables as many as possible
@@ -134,14 +112,7 @@ let myImgWr =  $('.imgWrapper');
 let svgCircle = $('.circle svg');
 let shenihan = $('.shn');
 
-
-
-
 /*////////////////////////////// */
-
-
-
-
 
 var mainAnim = Splitting({
 	/* target: String selector, Element, Array of Elements, or NodeList */
@@ -187,12 +158,26 @@ var sound = new Howl({
 		sound.once('unlock', function() {
 			playAudio();
 			console.log(error);
-
 		})
-
 		console.log(error);
 	}
 });
+
+
+
+// var path = anime.path('.motion-path path');
+
+// anime({
+//   targets: '.motion-path .el',
+//   translateX: path('x'),
+//   translateY: path('y'),
+//   rotate: path('angle'),
+//   easing: 'linear',
+//   duration: 20000,
+//   loop: true
+// });
+
+// console.log(path('angle'))
 
 
 
@@ -222,9 +207,6 @@ tl
 		  easing: 'easeOutExpo',
 		})
 
-
-
-
 /*// side Nav animation //*/
 var navtl = anime.timeline({
 	targets: '.cool-nav a span',
@@ -237,9 +219,9 @@ var navtl = anime.timeline({
 
 navtl
 .add({
-	translateY: [120, 0],
-		  // override the easing parameter
-		  easing: 'easeOutExpo',
+	// translateY: [120, 0],
+	// 	  // override the easing parameter
+	// 	  easing: 'easeOutExpo',
 		})
 
 
@@ -294,10 +276,6 @@ borzoiTl.add({
 /*////////////////////////////// */
 
 
-
-
-
-
 // Mousemove shandis on body
 if(document.documentURI.endsWith("/") === true){
 let mainText = $('.hover');
@@ -347,8 +325,6 @@ let cursor = $('.cursor')[0];
 // // mainText.each(b => b.addEventListener('mouseleave', cusormove))
 // window.addEventListener('mousemove', editCursor);
 
-
-
 }
 
 // function LoadIns(){
@@ -376,12 +352,6 @@ $('._jsSideNav').on('click', function(){
 	$('#nav-icon1').toggleClass('open');
 
 })
-
-
-
-
-
-
 
 // animate CV
 var cVtl = anime.timeline({
@@ -505,18 +475,7 @@ $('.hidePlayer').on('click', removeActive())
 // app menu
 // end event listeners
 
-
-
-
-
-
 /*////////////////////////////// */
-
-
-
-
-
-
 
 
 // declarative function?
@@ -647,12 +606,6 @@ function closeAppMenu(){
 	}
 
 }
-
-
-
-
-
-
 
 })(window,document,jQuery,Swiper,anime,Howler,Splitting)
 

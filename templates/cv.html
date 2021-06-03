@@ -8,20 +8,31 @@
 		<span class="dot2"></span>
 		<div class="navi">
 			<a href="/">back to home</a>
-			<a href="#">menu</a>
+			<a href="#" class="menu-btn">menu</a>
 		</div>
 		
 		<div class="heading" data-scroll-section>
+			
+      
 			<h1 data-scroll data-scroll-speed="1">
 				<span class="text">HELLO THERE</span>
 			</h1>
 			<p data-scroll data-scroll-speed="1.5">
-				<span class="text">I'm Monde, web developer that errs on the creative side of the web. I'm an enterprising, self-starter in the true sense of the word having co-founded two startups, <a href="https://disrupt-africa.com/2018/08/01/sas-picadoo-formalising-the-african-haircare-industry/" target="_blank">Picadoo(defunct)</a> , <a href="https://www.wezart.co.za/home/" target="_blank">WEZART</a> and <a href="https://gongong.live" target="_blank">Gong Live</a>, for personal care, a directory for local artworks and digitizing access to local talent with aitime based payments respectively. 
+				<span class="text">I'm Monde, web developer that errs on the creative side of the web. I'm an enterprising, self-starter in the true sense of the word having co-founded two startups, <a href="https://disrupt-africa.com/2018/08/01/sas-picadoo-formalising-the-african-haircare-industry/" target="_blank">Picadoo(defunct)</a> , <a href="https://www.wezart.co.za/home/" target="_blank">WEZART</a> and <a href="https://gongong.live" target="_blank">Gong Live(side project)</a>, for personal care, a directory for local artworks and digitizing access to local talent with airtime based payments respectively. 
 				</span>
 				<br>
 				<span>
 					I really really don't like popular social media platforms. I prefer longform content, forums and productive spaces.
 				</span>
+				<span>
+					When I'm not writing code, I write fiction or going downhill in my KTM hardtail. Slow weekends I'm usually watching Arsenal FC. 
+				</span>
+
+				
+
+				
+					<!-- <img class="arsenal" src="{{ url_for('static', filename='img/arsenal.svg') }}" alt="Arsenal FC"> -->
+				
 			</p>
 			</div>
 
@@ -45,26 +56,34 @@
 					<h3>Videography</h3>
 					<p>In 2015 my interest in videography, photography reached new highs. I've since then started to study the artform, from potraits by local artists to 1960s Japanese cinematography</p>
 				</div>
-				<div class="video" style="transform: translate(0px);" data-scoll data-scroll-speed="2" data-scroll-position="top" >
+				<div class="video" style="transform: translate(0px);" data-scoll data-scroll-speed="2" data-scroll-position="top" id="jap">
 					<video id="vid0" src="{{ url_for('static', filename='video/jap_cinematography.mp4') }}" muted loop autoplay></video>
-					<p class="bubble" data-scroll data-scroll-speed="0.5">The tale of Zatoichi is the masterpiece of Japanese Cinema by Kan Shimozawa</p>
+					<p class="bubble" data-scroll data-scroll-speed="0.5">A masterpiece of Japanese Cinema by Kan Shimozawa</p>
 				</div>	
 			</div>
 			<div class="details" data-scroll-section>
 				<div class="gaming">
 					<h3>Gaming adventure</h3>
-					<p>Phaserjs and P5js are game changers when it comes to 2D games. I've made some strides into simple html 2d games as a possible future avenue should the gaming appetite of South Africans increase in some meaningful way.</p>
+					<p>Phaserjs and P5js are game changers when it comes to 2D games. I've been spending way too much of my downtime learning about 2d canvas interaction, node based game development and browser performance of these simple game engine/libraries. Although I am learning about WebGl and using threejs a lot for browser based 3D, I'm hoping to settle on a story to build a game around some time in the near future.</p>
 				</div>
+				
 				<div class="editing">
 					<h3>Remixing/Editing</h3>
-					<p>For no reason at all, my love for music and cinema intetwined to create a video mix circa 2012. Ive been doing them ever since</p>
-				</div>
+					<p>For no reason at all, my love for music and cinema intertwined to create a video mix circa 2012. I've been doing them ever since as a hobb for when the creative juices are flowing freely.</p>
+				</div>	
+
+				<span id="arsenal"></span>
 		
 			</div>
-				<div class="links" data-scroll>
-					<a href="https://gongong.live" target="_blank">Gong</a>
-					<p>Gong is a livestreaming service that focuses on ease of payment and whatsapp integration with our custom solution.</p>
-				</div>
+
+
+
+		<!-- 	<div class="links details" data-scroll-section>
+				<a href="https://gongong.live" target="_blank">Gong</a>
+				<p>Gong is a livestreaming service that focuses on ease of payment through airtime and whatsapp integration for most if not all communications.</p>
+			</div> -->
+
+
 		</div>	
 	</div>
 </main>
